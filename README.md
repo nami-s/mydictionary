@@ -21,7 +21,14 @@
 ### 主な利用シーン
 メモや自分が勉強して忘れていることを思い出す時
 
-## 機能一覧
+## 設計書
+### 詳細設計
+<img width="1055" alt="詳細設計" src="https://user-images.githubusercontent.com/73943851/106591156-45c2f500-6591-11eb-879d-76d831e9b37a.png">
+
+### ER図
+<img width="1108" alt="ER図" src="https://user-images.githubusercontent.com/73943851/106591484-ae11d680-6591-11eb-9a6c-f6a87cb654db.png">
+
+### 機能一覧
 https://docs.google.com/spreadsheets/d/13sAxZT6msTCT1acio1W_Qcg8BBYZIRwf0BeSHzVLUL4/edit#gid=0
 
 ## 開発環境
@@ -30,4 +37,3 @@ https://docs.google.com/spreadsheets/d/13sAxZT6msTCT1acio1W_Qcg8BBYZIRwf0BeSHzVL
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
-
