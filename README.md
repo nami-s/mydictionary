@@ -25,7 +25,7 @@
 ### 詳細設計
 <img width="1055" alt="詳細設計" src="https://user-images.githubusercontent.com/73943851/106591156-45c2f500-6591-11eb-879d-76d831e9b37a.png">
 
-### ER図
+### ER図 / UI Flow
 <img width="1108" alt="ER図" src="https://user-images.githubusercontent.com/73943851/106591484-ae11d680-6591-11eb-9a6c-f6a87cb654db.png">
 
 ### 機能一覧
