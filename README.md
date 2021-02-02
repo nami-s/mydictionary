@@ -21,9 +21,7 @@
 ### 主な利用シーン
 メモや自分が勉強して忘れていることを思い出す時
 
-## 設計書
-
-## チャレンジ要素一覧
+## 機能一覧
 https://docs.google.com/spreadsheets/d/13sAxZT6msTCT1acio1W_Qcg8BBYZIRwf0BeSHzVLUL4/edit#gid=0
 
 ## 開発環境
@@ -33,4 +31,3 @@ https://docs.google.com/spreadsheets/d/13sAxZT6msTCT1acio1W_Qcg8BBYZIRwf0BeSHzVL
 - JSライブラリ：jQuery
 - IDE：Cloud9
 
-## 使用素材
