@@ -21,13 +21,6 @@
 ### 主な利用シーン
 メモや自分が勉強して忘れていることを思い出す時
 
-## 設計書
-### 詳細設計
-<img width="1055" alt="詳細設計" src="https://user-images.githubusercontent.com/73943851/106591156-45c2f500-6591-11eb-879d-76d831e9b37a.png">
-
-### ER図 / UI Flow
-<img width="893" alt="ER図 2021-02-02 21 38 55" src="https://user-images.githubusercontent.com/73943851/106601904-96414f00-659f-11eb-9cac-c032debf7ddb.png">
-
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/13sAxZT6msTCT1acio1W_Qcg8BBYZIRwf0BeSHzVLUL4/edit#gid=0
 
