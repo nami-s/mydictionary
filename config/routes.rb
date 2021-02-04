@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   get 'search' => 'searches#search'
   root to: 'homes#top'
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations' }
   resources :articles do
     resources :checks, only: [:create, :destroy]
   end
