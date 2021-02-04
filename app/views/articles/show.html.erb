@@ -5,3 +5,11 @@
 <%= attachment_image_tag(@article, :image, size: "50x50") %>
 <%= @article.body %>
 <%= link_to "編集", edit_article_path(@article) %>
+
+<%= link_to "チェック", article_checks_path(@article), method: :post %>
+<%= @checks.count %>回この記事をチェックしました
+
+<% @checks.each do |check| %>
+  <%= check.created_at.strftime('%Y.%m.%d') %>
+  <%= link_to "削除", article_check_path(check), method: :delete, data: {confirm: "削除しますか？"} %>
+<% end %>
