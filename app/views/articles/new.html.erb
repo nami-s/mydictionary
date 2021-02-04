@@ -1,2 +1,19 @@
-<h1>Articles#new</h1>
-<p>Find me in app/views/articles/new.html.erb</p>
+<h1>NEW CREATE</h1>
+
+<%= form_with model: @article, local: true do |f| %>
+  <div class="form-group">
+    <%= f.text_field :title, :placeholder => "タイトル", style: "background-color:transparent; border-color: black", size: 30 %>
+  </div>
+  <div class="form-group-sm">
+    <%= f.collection_select :category_id, @categories, :id, :name, {include_blank: "カテゴリー"} %>
+  </div>
+  <div class="form-group">
+    <%= f.attachment_field :image %>
+  </div>
+  <div class="form-group">
+    <%= f.text_area :body, :placeholder => "本文", style: "background-color:transparent; border-color: black", size: "30x10" %>
+  </div>
+  <div class="form-group">
+    <%= f.submit "保存" %>
+  </div>
+<% end %>

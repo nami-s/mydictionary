@@ -1,2 +1,11 @@
-<h1>Categories#index</h1>
-<p>Find me in app/views/categories/index.html.erb</p>
+<h1>カテゴリー一覧</h1>
+
+<%= form_with model: @category, local: true do |f| %>
+  <%= f.text_field :name, :placeholder => "タイトル", size: 30 %>
+  <%= f.submit '保存' %>
+<% end %>
+
+<% @categories.each do |category| %>
+  <%= category.name %>
+  <%= link_to "削除", category_path(category), method: :delete, data: {confirm: "削除しますか？"} %>
+<% end %>
