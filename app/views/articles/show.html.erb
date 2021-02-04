@@ -1,2 +1,7 @@
-<h1>Articles#show</h1>
-<p>Find me in app/views/articles/show.html.erb</p>
+<h1>辞書詳細ページ</h1>
+
+<%= @article.title %>
+<%= @article.category.name %>
+<%= attachment_image_tag(@article, :image, size: "50x50") %>
+<%= @article.body %>
+<%= link_to "編集", edit_article_path(@article) %>

@@ -1,4 +1,8 @@
+<h1>MY PAGE</h1>
+<%= link_to "新規投稿", new_article_path %>
+<%= link_to "プロフ編集", edit_user_registration_path %>
+
 <% @articles.each do |article| %>
-  <%= article.title %>
-  <%= article.body %>
+  <%= article.created_at.strftime('%Y.%m.%d') %>
+  <%= link_to article.title, article_path(article) %>
 <% end %>

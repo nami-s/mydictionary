@@ -1,2 +1,6 @@
-<h1>Categories#edit</h1>
-<p>Find me in app/views/categories/edit.html.erb</p>
+<h1>カテゴリー編集</h1>
+
+<%= form_with model: @category, local: true do |f| %>
+  <%= f.text_field :name, :placeholder => "タイトル", size: 30 %>
+  <%= f.submit '編集' %>
+<% end %>
