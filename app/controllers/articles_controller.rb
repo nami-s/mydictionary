@@ -12,8 +12,16 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new(article_params)
-    @article.user_id = current_user.id
+    if category_params[:radio_category] == "existing_category"
+      @category = Category.find(article_params[:category_id])
+      @article = current_user.article.new(article_params)
+      @article.category = @category
+    elsif category_params[:radio_category] == "new_category"
+      @category = current_user.categories.new(name: params[:name])
+      @category.save
+      @article = current_user.article.new(article_params)
+      @article.category = @category
+    end
     if @article.save
       redirect_to articles_path
     else
@@ -51,9 +59,15 @@ class ArticlesController < ApplicationController
 
   private
 
-  def article_params
-    params.require(:article).permit(:title, :category_id, :image, :body)
+  def category_params
+    params.permit(:name, :radio_category)
   end
 
+  def article_params
+    params.permit(:title, :category_id, :image, :body)
+  end
+  # def article_params
+  #   params.require(:article).permit(:title, :radio_category, :new_category, :category_id, :image, :body)
+  # end
 
 end
