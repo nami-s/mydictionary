@@ -12,14 +12,16 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    if category_params[:radio_category] == "existing_category"
+    if article_params[:radio_category] == "existing_category"
+      params_update = article_params.except(:name, :radio_category)
       @category = Category.find(article_params[:category_id])
-      @article = current_user.article.new(article_params)
+      @article = current_user.article.new(params_update)
       @article.category = @category
-    elsif category_params[:radio_category] == "new_category"
-      @category = current_user.categories.new(name: params[:name])
+    elsif article_params[:radio_category] == "new_category"
+      params_update = article_params.except(:category_id, :radio_category, :name)
+      @category = current_user.categories.new(name: article_params[:name])
       @category.save
-      @article = current_user.article.new(article_params)
+      @article = current_user.article.new(params_update)
       @article.category = @category
     end
     if @article.save
@@ -43,7 +45,17 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
-    if @article.update(article_params)
+    if article_params[:radio_category] == "existing_category"
+      params_update = article_params.except(:radio_category, :name)
+      @category = Category.find(article_params[:category_id])
+      @article.category = @category
+    elsif article_params[:radio_category] == "new_category"
+      params_update = article_params.except(:category_id, :radio_category, :name)
+      @category = current_user.categories.new(name: article_params[:name])
+      @category.save
+      @article.category = @category
+    end
+    if @article.update_attributes(params_update)
       redirect_to articles_path
     else
       @categories = Category.all
@@ -59,15 +71,8 @@ class ArticlesController < ApplicationController
 
   private
 
-  def category_params
-    params.permit(:name, :radio_category)
-  end
-
   def article_params
-    params.permit(:title, :category_id, :image, :body)
+    params.require(:article).permit(:title, :category_id, :name, :radio_category, :image, :body, :remove_image)
   end
-  # def article_params
-  #   params.require(:article).permit(:title, :radio_category, :new_category, :category_id, :image, :body)
-  # end
 
 end
