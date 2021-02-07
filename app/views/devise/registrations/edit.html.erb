@@ -1,20 +1,24 @@
-<h2>EDIT PROFILE</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :名前 %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+<div class="container edit">
+  <div class="row justify-content-center edit">
+    <h1>EDIT PROFILE</h1>
   </div>
-
-  <div class="field">
-    <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="row justify-content-center edit">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="field">
+        <%= f.label :名前 %><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", style: "background-color:transparent; border-color: black; border-width: 1px;" %>
+      </div>
+      <div class="field">
+        <%= f.label :メールアドレス %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", style: "background-color:transparent; border-color: black; border-width: 1px;" %>
+      </div><br>
+      <div class="actions text-right">
+        <%= f.submit " 編集 ", style: "background-color:transparent; border-color: black; border-width: 1px;" %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="actions">
-    <%= f.submit "編集" %>
+  <div class="row justify-content-center edit">
+    <%= link_to "戻る", :back, class: "btn btn-outline-dark" %>
   </div>
-<% end %>
-<%= link_to "戻る", :back %>
+</div>
