@@ -1,0 +1,7 @@
+<% if @results.present? %>
+  <% @results.each do |article| %>
+    <%= link_to article.title, article_path(article) %>
+  <% end %>
+<% else %>
+  <h1>何もなし</h1>
+<% end %>
