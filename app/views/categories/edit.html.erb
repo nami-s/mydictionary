@@ -1,6 +1,11 @@
-<h1>カテゴリー編集</h1>
-
-<%= form_with model: @category, local: true do |f| %>
-  <%= f.text_field :name, :placeholder => "タイトル", size: 30 %>
-  <%= f.submit '編集' %>
-<% end %>
+<div class="container category">
+  <div class="row justify-content-center category">
+    <h1>CATEGORY EDIT</h1>
+  </div>
+  <div class="row justify-content-center category">
+    <%= form_with model: @category, local: true do |f| %>
+      <%= f.text_field :name, :placeholder => "カテゴリー編集", style: "background-color:transparent; border-color; black; border-width: 1px;", size: 30 %>
+      <%= f.submit ' 編集 ', style: "background-color:transparent; border-color; black; border-width: 1px;" %>
+    <% end %>
+  </div>
+</div>
