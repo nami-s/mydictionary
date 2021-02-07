@@ -15,13 +15,13 @@
         <div class="col-2 text-right">
           <%= f.label :名前 %>
         </div>
-        <%= f.text_field :name, autofocus: true, style: "background-color:transparent; border-color: black" %>
+        <%= f.text_field :name, autofocus: true, style: "background-color:transparent; border-color: black; border-width: 1px;" %>
       </div><br>
       <div class="row justify-content-center">
         <div class="col-2 text-right">
           <%= f.label :メールアドレス %>
         </div>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", style: "background-color:transparent; border-color: black" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", style: "background-color:transparent; border-color: black; border-width: 1px;" %>
       </div><br>
       <div class="row justify-content-center">
         <div class="col-2 text-right">
@@ -30,17 +30,17 @@
           （<%= @minimum_password_length %> 文字以上）
           <% end %>
         </div>
-        <%= f.password_field :password, autocomplete: "new-password", style: "background-color:transparent; border-color: black" %>
+        <%= f.password_field :password, autocomplete: "new-password", style: "background-color:transparent; border-color: black; border-width: 1px;" %>
       </div><br>
       <div class="row justify-content-center">
         <div class="col-2 text-right">
           <%= f.label :パスワード確認 %>
         </div>
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", style: "background-color:transparent; border-color: black" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", style: "background-color:transparent; border-color: black; border-width: 1px;" %>
       </div><br>
       <div class="row justify-content-center">
         <div class="col-5 text-right">
-          <%= f.submit " 登録 ", style: "background-color:transparent; border-color: black" %>
+          <%= f.submit " 登録 ", style: "background-color:transparent; border-color: black; border-width: 1px;" %>
         </div>
       </div>
       <% end %>

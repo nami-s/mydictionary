@@ -1,12 +1,24 @@
-<h1>カテゴリー一覧</h1>
-
-<%= form_with model: @category, local: true do |f| %>
-  <%= f.text_field :name, :placeholder => "タイトル", size: 30 %>
-  <%= f.submit '保存' %>
-<% end %>
-
-<% @categories.each do |category| %>
-  <%= link_to category.name, category_path(category) %>
-  <%= link_to "編集", edit_category_path(category) %>
-  <%= link_to "削除", category_path(category), method: :delete, data: {confirm: "削除しますか？"} %>
-<% end %>
+<div class="container category">
+  <div class="row justify-content-center category">
+    <h1>CATEGORIES LIST</h1>
+  </div>
+  <div class="row justify-content-center category">
+    <%= form_with model: @category, local: true do |f| %>
+      <%= f.text_field :name, :placeholder => "カテゴリー新規登録", style: "background-color:transparent; border-color; black; border-width: 1px;", size: 30 %>
+      <%= f.submit ' 保存 ', style: "background-color:transparent; border-color; black; border-width: 1px;" %>
+    <% end %>
+  </div>
+  <div class="row justify-content-center category">
+    <table>
+      <tbody>
+      <% @categories.each do |category| %>
+        <tr>
+        <td class="pr-5"><%= link_to category.name, category_path(category), class: "text-dark" %></td>
+        <td><%= link_to "編集", edit_category_path(category), class: "btn btn-outline-dark" %></td>
+        <td><%= link_to "削除", category_path(category), method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-outline-dark" %></td><br>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

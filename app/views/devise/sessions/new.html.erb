@@ -10,13 +10,13 @@
         <div class="col-2 text-right">
           <%= f.label :メールアドレス %>
         </div>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", style: "background-color:transparent; border-color: black" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", style: "background-color:transparent; border-color: black; black; border-width: 1px;" %>
       </div><br>
       <div class="row justify-content-center">
         <div class="col-2 text-right">
           <%= f.label :パスワード %>
         </div>
-        <%= f.password_field :password, autocomplete: "current-password", style: "background-color:transparent; border-color: black" %>
+        <%= f.password_field :password, autocomplete: "current-password", style: "background-color:transparent; border-color: black; black; border-width: 1px;" %>
       </div><br>
       <div class="row justify-content-center">
         <div class="col-4 text-right">
@@ -28,7 +28,7 @@
       </div><br>
       <div class="row justify-content-center">
         <div class="col-5 text-right">
-          <%= f.submit " ログイン ", style: "background-color:transparent; border-color: black" %>
+          <%= f.submit " ログイン ", style: "background-color:transparent; border-color: black; black; border-width: 1px;" %>
         </div>
       </div>
       <% end %>
