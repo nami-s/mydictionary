@@ -25,7 +25,7 @@ class ArticlesController < ApplicationController
       @article.category = @category
     end
     if @article.save
-      redirect_to articles_path
+      redirect_to article_path(@article)
     else
       @categories = Category.all
       render 'new'

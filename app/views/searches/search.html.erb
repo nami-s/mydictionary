@@ -1,7 +1,0 @@
-<%= search_form_for @p, enforce_utf8: false, url: searches_path do |f| %>
-  <%= f.search_field :title_cont, :placeholder => "タイトル", style: "background-color:transparent; border-color: black", size: 30 %>
-  <%= f.search_field :created_at_or_updated_at_cont, :placeholder => "日付", style: "background-color:transparent; border-color: black", size: 30 %>
-  <%= f.text_area :title_or_body_cont, :placeholder => "キーワード", style: "background-color:transparent; border-color: black", size: "30x10", required: :true %>
-  <%= f.collection_select :category_id_eq, @categories, :id, :name %>
-  <%= f.submit "検索" %>
-<% end %>

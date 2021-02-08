@@ -1,15 +1,44 @@
-<h1>辞書詳細ページ</h1>
-
-<%= @article.title %>
-<%= @article.category.name %>
-<%= attachment_image_tag(@article, :image, size: "50x50") %>
-<%= @article.body %>
-<%= link_to "編集", edit_article_path(@article) %>
-
-<%= link_to "チェック", article_checks_path(@article), method: :post %>
-<%= @checks.count %>回この記事をチェックしました
-
-<% @checks.each do |check| %>
-  <%= check.created_at.strftime('%Y.%m.%d') %>
-  <%= link_to "削除", article_check_path(check), method: :delete, data: {confirm: "削除しますか？"} %>
-<% end %>
+<div class="container article">
+  <%= render "layouts/header" %>
+  <div class="row justify-content-center articles">
+    <h1>DICTIONARY</h1>
+  </div>
+  <div class="row justify-content-center article-title">
+    <%= @article.title %>
+  </div>
+  <div class="row justify-content-center article-title">
+    <%= @article.category.name %>
+  </div>
+  <div class="row justify-content-center article">
+    <%= attachment_image_tag @article, :image, size: "200x200", class: "rounded-circle" %>
+  </div>
+  <div class="row justify-content-center article">
+    <div class="col-4">
+      <%= @article.body %>
+    </div>
+  </div>
+  <div class="row justify-content-center article" style="padding-left: 300px;">
+    <%= link_to "編集", edit_article_path(@article), class: "btn btn-outline-dark" %>
+  </div>
+  <div class="row justify-content-center article">
+    <%= link_to "Click after reading", article_checks_path(@article), method: :post, class: "btn btn-outline-dark" %>
+  </div>
+  <div class="row justify-content-center">
+    I checked this page <%= @checks.count %> times
+  </div>
+  <div class="row justify-content-center article">
+    The day I read this book
+  </div>
+  <div class="row justify-content-center">
+    <table>
+      <tbody>
+      <% @checks.each do |check| %>
+        <tr>
+          <td><%= check.created_at.strftime('%Y.%m.%d') %></td>
+          <td class="pl-3" style="font-size: 15px;"><%= link_to "削除", article_check_path(check), method: :delete, data: {confirm: "削除しますか？"}, class: "text-dark" %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

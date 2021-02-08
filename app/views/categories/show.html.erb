@@ -1,5 +1,9 @@
 <div class="container categories">
+  <%= render "layouts/header" %>
   <div class="row justify-content-center category">
+    <h5>CATEGORY NAME</h5>
+  </div>
+  <div class="row justify-content-center">
     <h1><%= @category.name %></h1>
   </div>
   <div class="row justify-content-center category">
@@ -7,7 +11,7 @@
       <tbody>
         <% @articles.each do |article| %>
           <tr>
-            <td class="pr-5"><%= article.created_at.strftime('%Y.%m.%d %H:%M') %></td>
+            <td class="pr-5"><%= article.created_at.strftime('%Y.%m.%d') %></td>
             <td><%= link_to article.title, article_path(article), class: "text-dark" %></td>
           </tr>
         <% end %>

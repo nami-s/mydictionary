@@ -1,0 +1,17 @@
+<div class="container pt-3">
+  <header class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand pt-0" href="/"><span>MyDictionary</span></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto">
+      <% if user_signed_in? %>
+      <%= link_to "MY PAGE", articles_path, class: "btn btn-outline-dark mr-2 mb-2" %>
+      <%= link_to "CATEGORY", categories_path, class: "btn btn-outline-dark mr-2 mb-2" %>
+      <%= link_to "LOGOUT", destroy_user_session_path, method: :delete, data: {comfirm: "ログアウトしますか？"}, class: "btn btn-outline-dark mr-2 mb-2" %>
+      <% end %>
+      </ul>
+    </div>
+  </header>
+</div>

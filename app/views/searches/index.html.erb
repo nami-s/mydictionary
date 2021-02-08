@@ -1,7 +1,22 @@
-<% if @results.present? %>
-  <% @results.each do |article| %>
-    <%= link_to article.title, article_path(article) %>
-  <% end %>
-<% else %>
-  <h1>何もなし</h1>
-<% end %>
+<div class="container article">
+  <%= render "layouts/header" %>
+  <div class="row justify-content-center articles">
+    <h1>検索結果</h1>
+  </div>
+  <div class="row justify-content-center articles">
+    <table>
+      <tbody>
+        <% if @results.present? %>
+          <% @results.each do |article| %>
+          <tr>
+            <td class="pr-5"><%= article.created_at.strftime('%Y.%m.%d') %></td>
+            <td><%= link_to article.title, article_path(article), class: "text-dark" %></td>
+          </tr>
+          <% end %>
+        <% else %>
+          <h1>何もなし</h1>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
