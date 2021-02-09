@@ -9,7 +9,6 @@
       <% if user_signed_in? %>
       <%= link_to "MY PAGE", articles_path, class: "btn btn-outline-dark mr-2 mb-2" %>
       <%= link_to "CATEGORY", categories_path, class: "btn btn-outline-dark mr-2 mb-2" %>
-      <%= link_to "LOGOUT", destroy_user_session_path, method: :delete, data: {comfirm: "ログアウトしますか？"}, class: "btn btn-outline-dark mr-2 mb-2" %>
       <button type="button" class= "btn btn-outline-dark mr-2 mb-2" data-toggle="modal" data-target="#modalForm" data-cusno=1 data-visitday="2019-07-01">
           SEARCH
       </button>
@@ -20,6 +19,7 @@
           </div>
         </div>
       </div>
+      <%= link_to "LOGOUT", destroy_user_session_path, method: :delete, class: "btn btn-outline-dark mr-2 mb-2" %>
       <% end %>
       </ul>
     </div>

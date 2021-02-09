@@ -1,3 +1,11 @@
-<%= render "layouts/header" %>
-<h1>Homes#top</h1>
-<p>Find me in app/views/homes/top.html.erb</p>
+<div class="container top">
+  <%= render "layouts/header" %>
+  <% if !user_signed_in? %>
+  <div class="row justify-content-center top">
+  <%= link_to "新規登録", new_user_registration_path, class: "btn  bg-transparent btn-outline-dark" %>
+  </div><br>
+  <div class="row justify-content-center top">
+  <%= link_to "登録済みの方はこちら", new_user_session_path, class: "btn  bg-transparent btn-outline-dark" %>
+  </div>
+  <% end %>
+</div>

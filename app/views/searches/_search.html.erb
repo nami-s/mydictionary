@@ -1,8 +1,16 @@
-<div class="container">
-<%= search_form_for @p, enforce_utf8: false, url: searches_path do |f| %>
-  <%= f.search_field :created_at_or_updated_at_cont, :placeholder => "日付", style: "background-color:transparent; border-color: black; border-width: 1px;", size: 30 %>
-  <%= f.text_area :title_or_body_cont, :placeholder => "キーワード", style: "background-color:transparent; border-color: black; border-width: 1px;", size: "30x10", required: :true %>
-  <%= f.collection_select :category_id_eq, @categories, :id, :name %>
-  <%= f.submit "検索", style: "background-color:transparent; border-color: black; border-width: 1px;" %>
-<% end %>
-</idiv>
+  <div class="row justify-content-center search">
+  <%= search_form_for @p, enforce_utf8: false, url: searches_path do |f| %>
+  <div class="col search">
+    <%= f.search_field :created_at_or_updated_at_cont, :placeholder => "日付", style: "background-color:transparent; border-color: black; border-width: 1px;", size: 20 %>
+  </div>
+  <div class="col search">
+    <%= f.collection_select :category_id_eq, @categories, :id, :name %>
+  </div>
+  <div class="col search">
+    <%= f.text_area :title_or_body_cont, :placeholder => "キーワード", style: "background-color:transparent; border-color: black; border-width: 1px;", size: "20x5", required: :true %>
+  </div>
+  <div class="col text-right search">
+    <%= f.submit " 検索 ", style: "background-color:transparent; border-color: black; border-width: 1px;" %>
+  </div>
+  <% end %>
+  </div>

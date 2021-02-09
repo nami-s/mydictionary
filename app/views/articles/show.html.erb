@@ -1,10 +1,7 @@
 <div class="container article">
   <%= render "layouts/header" %>
   <div class="row justify-content-center articles">
-    <h1>DICTIONARY</h1>
-  </div>
-  <div class="row justify-content-center article-title">
-    <%= @article.title %>
+    <h1><%= @article.title %> dictionary</h1>
   </div>
   <div class="row justify-content-center article-title">
     <%= @article.category.name %>
@@ -14,7 +11,7 @@
   </div>
   <div class="row justify-content-center article">
     <div class="col-4">
-      <%= @article.body %>
+      <%= simple_format@article.body %>
     </div>
   </div>
   <div class="row justify-content-center article" style="padding-left: 300px;">

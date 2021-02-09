@@ -1,10 +1,7 @@
 <div class="container articles">
   <%= render "layouts/header" %>
   <div class="row justify-content-center articles">
-    <h1>MY PAGE</h1>
-  </div>
-  <div class="row justify-content-center name">
-    <h2><%= current_user.name %> Library</h2>
+    <h1><%= current_user.name %> dictionary</h1>
   </div>
   <div class="row justify-content-center" style="padding-left: 300px;">
     <%= link_to "新規投稿", new_article_path, class: "btn btn-outline-dark" %>
