@@ -54,6 +54,10 @@ class ArticlesController < ApplicationController
       @category.save
       @article.category = @category
     end
+    if article_params[:radio_image] == "remove_image"
+      params_update[:remove_image] = 1
+    end
+    params_update = params_update.except(:radio_image)
     if @article.update_attributes(params_update)
       redirect_to articles_path
     else
@@ -71,7 +75,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :category_id, :name, :radio_category, :image, :body, :remove_image)
+    params.require(:article).permit(:title, :category_id, :name, :radio_category, :image, :body, :remove_image, :radio_image)
   end
 
 end
