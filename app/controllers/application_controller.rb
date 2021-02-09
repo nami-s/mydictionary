@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :search_product
 
   def after_sign_in_path_for(resource)
     root_path
@@ -15,5 +16,12 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
     devise_parameter_sanitizer.permit(:account_update, keys: [:name])
   end
+
+  def search_product
+    @p = Article.ransack(params[:q])
+    @results = @p.result
+    @categories = Category.all
+  end
+
 
 end
