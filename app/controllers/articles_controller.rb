@@ -2,13 +2,13 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @articles = Article.all
-    @categories = Category.all
+    @articles = current_user.article.all
+    @categories = current_user.categories.all
   end
 
   def new
     @article = Article.new
-    @categories = Category.all
+    @categories = current_user.categories.all
   end
 
   def create
@@ -27,20 +27,19 @@ class ArticlesController < ApplicationController
     if @article.save
       redirect_to article_path(@article)
     else
-      @categories = Category.all
+      @categories = current_user.categories.all
       render 'new'
     end
   end
 
   def show
-    @article = Article.find(params[:id])
-    @article.user_id = current_user.id
+    @article = current_user.article.find(params[:id])
     @checks = Check.where(article_id: @article.id)
   end
 
   def edit
-    @article = Article.find(params[:id])
-    @categories = Category.all
+    @article = current_user.article.find(params[:id])
+    @categories = current_user.categories.all
   end
 
   def update
@@ -58,13 +57,13 @@ class ArticlesController < ApplicationController
     if @article.update_attributes(params_update)
       redirect_to articles_path
     else
-      @categories = Category.all
+      @categories = current_user.categories.all
       render "edit"
     end
   end
 
   def destroy
-    @article = Article.find(params[:id])
+    @article = current_user.article.find(params[:id])
     @article.destroy
     redirect_to articles_path
   end

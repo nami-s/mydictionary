@@ -7,36 +7,34 @@
     <%= link_to "削除", article_path(@article), method: :delete, data: {confirm: "削除しますか？"}, class: "btn  bg-transparent btn-outline-dark" %>
   </div>
   <%= form_with model: @article, method: :patch, local: true do |f| %>
-  <div class="row" style="margin-right: 10px;">
-    <div class="col-7" style="padding-left: 500px;">
-        <div class="form-group">
-          <%= f.text_field :title, :placeholder => "タイトル", style: "background-color:transparent; border-color: black; border-width: 1px;", size: 30 %>
-        </div>
-        <div class="form-group">
-          <%= f.radio_button :radio_category, "existing_category", {:checked => true} %>既存のカテゴリーから選択<br>
-          <%= f.collection_select :category_id, @categories, :id, :name, selected: @article.category_id %>
-        </div>
-        <div class="form-group">
-          <%= f.radio_button :radio_category, "new_category" %>新しくカテゴリーを作成<br>
-          <%= f.text_field :name, :placeholder => "カテゴリー", style: "background-color:transparent; border-color: black; border-width: 1px;", size: 30 %>
-        </div>
-        <div class="form-group">
-          <%= attachment_image_tag(@article, :image, size: "100x100", class: "rounded-circle") %>
-          <%= f.check_box :remove_image %>
-          <%= f.label :remove_image %><br><br>
-          <%= f.attachment_field :image %>
-        </div>
+  <div class="row justify-content-center" style="padding-right: 100px;">
+    <div class="col text-center">
+      <div class="form-group pr-3">
+        <%= f.text_field :title, :placeholder => "タイトル", style: "background-color:transparent; border-color: black; border-width: 1px;", size: 20 %>
       </div>
-      <div class="col-5" style="padding-left: 100px; padding-top: 150px;">
-        <div class="form-group">
-          <%= f.text_area :body, :placeholder => "本文", style: "background-color:transparent; border-color: black", size: "30x10" %>
-        </div>
-        <div class="row" style="padding-left: 270px; padding-top: 0px;">
-          <div class="form-group">
-            <%= f.submit " 編集 ", style: "background-color:transparent; border-color: black; border-width: 1px;" %>
-          </div>
-        </div>
+      <div class="form-group">
+        <%= f.radio_button :radio_category, "existing_category", {:checked => true} %>既存のカテゴリーから選択<br>
+        <%= f.collection_select :category_id, @categories, :id, :name, selected: @article.category_id %>
       </div>
+      <div class="form-group pr-3">
+        <%= f.radio_button :radio_category, "new_category" %>新しくカテゴリーを作成<br>
+        <%= f.text_field :name, :placeholder => "カテゴリー", style: "background-color:transparent; border-color: black; border-width: 1px;", size: 20 %>
+      </div>
+      <div class="form-group" style="padding-right: 60px">
+        <%= attachment_image_tag(@article, :image, size: "80x80", class: "rounded-circle") %>
+        <%= f.check_box :remove_image %>
+        <%= f.label :remove_image %>
+      </div>
+      <div class="form-group" style="padding-left: 30px">
+        <%= f.attachment_field :image %>
+      </div>
+      <div class="form-group">
+        <%= f.text_area :body, :placeholder => "本文", style: "background-color:transparent; border-color: black", size: "30x5" %>
+      </div>
+      <div class="form-group" style="padding-left: 200px">
+        <%= f.submit " 編集 ", style: "background-color:transparent; border-color: black; border-width: 1px;" %>
+      </div>
+    </div>
   </div>
   <% end %>
 </div>

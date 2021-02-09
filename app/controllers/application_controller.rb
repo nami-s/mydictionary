@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :search_product
+  before_action :search_product, if: :current_user
 
   def after_sign_in_path_for(resource)
     root_path
@@ -18,9 +18,9 @@ class ApplicationController < ActionController::Base
   end
 
   def search_product
-    @p = Article.ransack(params[:q])
+    @p = current_user.article.ransack(params[:q])
     @results = @p.result
-    @categories = Category.all
+    @categories = current_user.categories.all
   end
 
 end
