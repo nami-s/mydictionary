@@ -4,10 +4,10 @@
   <%= f.search_field :created_at_or_updated_at_cont, :placeholder => "日付", style: "background-color:transparent; border-color: black; border-width: 1px;", size: 20 %>
 </div>
 <div class="col search">
-  <%= f.collection_select :category_id_eq, @categories, :id, :name %>
+  <%= f.collection_select :category_id_eq, @categories, :id, :name, :include_blank => 'カテゴリー未選択', :selected => nil %>
 </div>
 <div class="col search">
-  <%= f.text_area :title_or_body_cont, :placeholder => "キーワード", style: "background-color:transparent; border-color: black; border-width: 1px;", size: "20x5", required: :true %>
+  <%= f.text_area :title_or_body_cont, :placeholder => "キーワード", style: "background-color:transparent; border-color: black; border-width: 1px;", size: "20x5", required: :true, value: '' %>
 </div>
 <div class="col text-right search">
   <%= f.submit " 検索 ", style: "background-color:transparent; border-color: black; border-width: 1px;" %>

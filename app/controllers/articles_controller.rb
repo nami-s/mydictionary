@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @articles = current_user.article.all.page(params[:page]).per(15)
+    @articles = current_user.article.all.page(params[:page]).per(15).order(" created_at DESC ")
     @categories = current_user.categories.all
   end
 
@@ -59,7 +59,7 @@ class ArticlesController < ApplicationController
     end
     params_update = params_update.except(:radio_image)
     if @article.update_attributes(params_update)
-      redirect_to articles_path
+      redirect_to article_path(@article)
     else
       @categories = current_user.categories.all
       render "edit"
