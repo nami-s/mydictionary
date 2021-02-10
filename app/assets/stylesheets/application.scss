@@ -17,6 +17,7 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+@import url('https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&display=swap');
 
 .container{
   font-family: serif;
@@ -32,6 +33,12 @@
   width: 100%;
   max-width: 100%;
   height: auto;
+}
+
+.container.top h1{
+  font-family: 'Mrs Saint Delafield', cursive;
+  opacity: 0.7;
+  margin: 200px;
 }
 
 .container.devise {
@@ -72,8 +79,4 @@
 
 .modal-content{
   background-image: url(search.jpg);
-}
-
-input[type=radio] {
-  color: black;
 }
