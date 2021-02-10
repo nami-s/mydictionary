@@ -6,4 +6,7 @@ class Article < ApplicationRecord
   has_many :checks, dependent: :destroy
   attachment :image
 
+  validates :title, presence: true
+  validates :body, presence: true
+
 end

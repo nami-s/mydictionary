@@ -12,7 +12,7 @@ class CategoriesController < ApplicationController
     if @category.save
       redirect_to categories_path
     else
-      @categories = Category.all
+      @categories = current_user.categories.all
       render 'index'
     end
   end

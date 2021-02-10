@@ -3,6 +3,9 @@
   <div class="row justify-content-center category">
     <h1>CATEGORY EDIT</h1>
   </div>
+  <div class="row justify-content-center">
+    <%= render "devise/shared/error_messages", resource: @category %>
+  </div>
   <div class="row justify-content-center category">
     <%= form_with model: @category, local: true do |f| %>
       <%= f.text_field :name, :placeholder => "カテゴリー編集", style: "background-color:transparent; border-color; black; border-width: 1px;", size: 30 %>

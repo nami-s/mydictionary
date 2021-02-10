@@ -3,6 +3,9 @@
   <div class="row justify-content-center" style="padding-top: 50px; padding-bottom: 20px; margin-right: 140px;">
     <h1>NEW CREATE</h1>
   </div>
+  <div class="row justify-content-center">
+  <%= render "devise/shared/error_messages", resource: @article %>
+  </div>
   <div class="row justify-content-center" style="margin-right: 10px; padding-top: 0px;">
     <%= form_with model: @article, local: true do |f| %>
       <div class="form-group">
