@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :checks, dependent: :destroy
 
   validates :name, presence: true
-  
+
   def self.guest
     find_or_create_by!(email: 'aaa@aaa.com') do |user|
       user.password = SecureRandom.urlsafe_base64
@@ -17,5 +17,5 @@ class User < ApplicationRecord
       user.name = 'ゲストユーザー'
     end
   end
-  
+
 end
