@@ -80,3 +80,21 @@
 .modal-content{
   background-image: url(search.jpg);
 }
+
+.pagination>li>a {
+  border: none; 
+  color: black;
+  background-color: rgba(0,0,0,0);
+}
+
+.page-item.active .page-link{
+  background-color: black;
+  color: white;
+  border-radius: 40%;
+}
+
+.pagination>li>a:hover {
+  color: black;
+  background-color: rgba(0,0,0,0);
+
+}
