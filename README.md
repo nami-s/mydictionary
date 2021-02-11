@@ -19,7 +19,7 @@
 勉強やメモをする習慣のある人（学生、社会人など幅広い世代）
 
 ### 主な利用シーン
-メモや自分が勉強して忘れていることを思い出す時
+メモや自分が勉強して忘れていることを思い出したり復習するとき
 
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/13sAxZT6msTCT1acio1W_Qcg8BBYZIRwf0BeSHzVLUL4/edit#gid=0
