@@ -6,13 +6,13 @@ class ChecksController < ApplicationController
     @check.article_id = params[:article_id]
     @check.user_id = current_user.id
     @check.save
-    redirect_to article_path(@article)
+    # redirect_to article_path(@article)
   end
 
   def destroy
-    @article = current_user.article.find(params[:id])
-    @check = current_user.checks.find(params[:article_id])
+    @article = current_user.article.find(params[:article_id])
+    @check = current_user.checks.find_by(id: params[:id], article_id: params[:article_id])
     @check.destroy
-    redirect_to article_path(@article)
+    # redirect_to article_path(@article)
   end
 end

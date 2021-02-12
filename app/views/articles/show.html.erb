@@ -17,25 +17,8 @@
   <div class="row justify-content-center article" style="padding-left: 300px;">
     <%= link_to "編集", edit_article_path(@article), class: "btn btn-outline-dark" %>
   </div>
-  <div class="row justify-content-center article">
-    <%= link_to "Click after reading", article_checks_path(@article), method: :post, class: "btn btn-outline-dark" %>
-  </div>
-  <div class="row justify-content-center">
-    I checked this page <%= @checks.count %> times
-  </div>
-  <div class="row justify-content-center article">
-    The day I read this book
-  </div>
-  <div class="row justify-content-center">
-    <table>
-      <tbody>
-      <% @checks.each do |check| %>
-        <tr>
-          <td><%= check.created_at.strftime('%Y.%m.%d') %></td>
-          <td class="pl-3" style="font-size: 15px;"><%= link_to "削除", article_check_path(check), method: :delete, data: {confirm: "削除しますか？"}, class: "text-dark" %></td>
-        </tr>
-      <% end %>
-      </tbody>
-    </table>
+  <div class="check">
+    <%= render 'checks/check', article: @article %>
+    <%#= render 'checks/check', check: @checks, article: @article %>
   </div>
 </div>

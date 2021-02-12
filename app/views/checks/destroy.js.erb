@@ -1,0 +1,2 @@
+$('.check_<%= @check.id %>').remove();
+$('.check').html("<%= j(render 'checks/check', article: @article) %>");
