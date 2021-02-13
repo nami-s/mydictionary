@@ -60,7 +60,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 
-  before_action :check_guest, only: %i[update]
+  before_action :check_guest, only: %i[update destroy]
 
   def check_guest
     if resource.email == 'aaa@aaa.com'

@@ -10,12 +10,12 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require moment
-//= require fullcalendar
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
 //= require rails-ujs
+//= require moment
+//= require fullcalendar
 //= require activestorage
 //= require turbolinks
 /*global $*/
@@ -37,7 +37,7 @@ $(function () {
           eventCalendar();
       });
       $(document).on('turbolinks:before-cache', clearCalendar);
-      
+
       $('#calendar').fullCalendar({
           schedules: '/schedules.json'
       });
