@@ -64,7 +64,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def check_guest
     if resource.email == 'aaa@aaa.com'
-      render 'index'
+      render 'article/index'
     end
   end
 
