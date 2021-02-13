@@ -14,9 +14,13 @@ class ArticlesController < ApplicationController
   def create
     if article_params[:radio_category] == "existing_category"
       params_update = article_params.except(:name, :radio_category)
-      @category = Category.find(article_params[:category_id])
-      @article = current_user.article.new(params_update)
-      @article.category = @category
+      if article_params[:category_id]
+        @category = Category.find(article_params[:category_id])
+        @article = current_user.article.new(params_update)
+        @article.category = @category
+      else
+        @article = current_user.article.new(params_update)
+      end
     elsif article_params[:radio_category] == "new_category"
       params_update = article_params.except(:category_id, :radio_category, :name)
       @category = current_user.categories.new(name: article_params[:name])
