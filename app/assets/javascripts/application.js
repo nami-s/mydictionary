@@ -20,12 +20,12 @@
 //= require flatpickr
 //= require flatpickr/l10n/ja
 //= require turbolinks
-/*global $*/
+/*global */
 /*global flatpickr*/
 //= require_tree .
 
 document.addEventListener('turbolinks:load', () => {
-  const TODAY = new Date(new Date().setHours(0, 0, 0, 0));
+  const TODAY = new Date(new Date());
   flatpickr.localize(flatpickr.l10ns.ja);
   flatpickr('#flatpickr',{
   disableMobile: true,
