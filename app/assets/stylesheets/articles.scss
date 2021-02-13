@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .container.note {
-  background-image: url(note.jpg);
+  background-image: image-url("note.jpg");
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
@@ -15,7 +15,7 @@
 }
 
 .container.articles {
-  background-image: url(books.jpg);
+  background-image: image-url("books.jpg");
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
@@ -38,7 +38,7 @@
 }
 
 .container.article {
-  background-image: url(book.jpg);
+  background-image: image-url("book.jpg");
   background-size: cover;
   background-attachment: fixed;
   background-position: center;

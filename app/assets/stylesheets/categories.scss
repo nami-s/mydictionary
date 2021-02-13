@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .container.category {
-  background-image: url(category.jpg);
+  background-image: image-url("category.jpg");
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
@@ -28,7 +28,7 @@
 }
 
 .container.categories {
-  background-image: url(book.jpg);
+  background-image: image-url("book.jpg");
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
