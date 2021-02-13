@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :schedules
   get 'search' => 'searches#search'
   get 'searches' => 'searches#index'
   root to: 'homes#top'

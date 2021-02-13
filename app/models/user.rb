@@ -15,6 +15,7 @@ class User < ApplicationRecord
       user.password = SecureRandom.urlsafe_base64
       user.password_confirmation = user.password
       user.name = 'ゲストユーザー'
+      user.isguest = true
     end
   end
 

@@ -10,8 +10,10 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+
  *= require_tree .
  *= require_self
+ *= require fullcalendar
  */
 
 @import "bootstrap";
@@ -82,7 +84,7 @@
 }
 
 .pagination>li>a {
-  border: none; 
+  border: none;
   color: black;
   background-color: rgba(0,0,0,0);
 }
@@ -96,5 +98,8 @@
 .pagination>li>a:hover {
   color: black;
   background-color: rgba(0,0,0,0);
+}
 
+.field_with_errors {
+  display: contents;
 }

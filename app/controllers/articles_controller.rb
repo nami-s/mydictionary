@@ -34,7 +34,6 @@ class ArticlesController < ApplicationController
 
   def show
     @article = current_user.article.find(params[:id])
-    # @checks = Check.where(article_id: @article.id)
   end
 
   def edit
