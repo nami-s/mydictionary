@@ -17,9 +17,21 @@
 //= require moment
 //= require fullcalendar
 //= require activestorage
+//= require flatpickr
+//= require flatpickr/l10n/ja
 //= require turbolinks
 /*global $*/
+/*global flatpickr*/
 //= require_tree .
+
+document.addEventListener('turbolinks:load', () => {
+  const TODAY = new Date(new Date().setHours(0, 0, 0, 0));
+  flatpickr.localize(flatpickr.l10ns.ja);
+  flatpickr('#flatpickr',{
+  disableMobile: true,
+  maxDate: TODAY
+  });
+});
 
 $(function () {
   // 画面遷移を検知

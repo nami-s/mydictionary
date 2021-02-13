@@ -14,6 +14,8 @@
  *= require_tree .
  *= require_self
  *= require fullcalendar
+ *= require flatpickr
+ *= require flatpickr/themes/airbnb.css
  */
 
 @import "bootstrap";

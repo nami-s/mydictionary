@@ -64,7 +64,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def check_guest
     if resource.email == 'aaa@aaa.com'
-      render 'article/index'
+      flash[:danger] = "ゲストユーザはプロフィール情報を変更できません"
+      @articles = current_user.article.all.page(params[:page]).per(15).order(" created_at DESC ")
+      @categories = current_user.categories.all
+      render 'articles/index'
     end
   end
 

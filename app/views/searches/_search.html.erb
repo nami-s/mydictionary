@@ -1,7 +1,7 @@
 <div class="row justify-content-center search">
 <%= search_form_for @p, enforce_utf8: false, url: searches_path do |f| %>
 <div class="col search">
-  <%= f.search_field :created_at_or_updated_at_cont, :placeholder => "日付", style: "background-color:transparent; border-color: black; border-width: 1px;", size: 20 %>
+  <%= f.search_field :created_at_eq, :placeholder => "日付", id: "flatpickr", type: "text", readonly: "", value: '', style: "background-color:transparent; border-color: black; border-width: 1px;", size: 20 %>
 </div>
 <div class="col search">
   <%= f.collection_select :category_id_eq, @categories, :id, :name, :include_blank => 'カテゴリー未選択', :selected => nil %>
