@@ -2,7 +2,6 @@
   <% if schedule.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
-
       <ul>
       <% schedule.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,28 +9,39 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="row scheduleform">
+    <div class="col-5 text-right">
+      <%= form.label :スケジュール名 %>
+    </div>
+    <div class="col-5">
+      <%= form.text_field :title, size: 20 %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+  <div class="row scheduleform">
+    <div class="col-5 text-right">
+    <%= form.label :スケジュール内容 %>
+    </div>
+    <div class="col-5">
+      <%= form.text_area :description, size: "19x5" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :start %>
-    <%= form.datetime_select :start %>
+  <div class="row scheduleform">
+    <div class="col-5 text-right">
+      <%= form.label :開始時間 %>
+    </div>
+    <div class="col-5">
+      <%= form.text_field :start, :placeholder => "日時", id: "flatpickr", type: "text", readonly: "", size: 20 %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :end %>
-    <%= form.datetime_select :end %>
+  <div class="row scheduleform">
+    <div class="col-5 text-right">
+      <%= form.label :終了時間 %>
+    </div>
+    <div class="col-5">
+      <%= form.text_field :end, :placeholder => "日時", id: "flatpickr", type: "text", readonly: "", size: 20 %>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="row justify-content-end scheduleform">
+      <%= form.submit " 登録 ", style: "background-color:transparent; border-color: black; border-width: 1px;" %>
   </div>
 <% end %>

@@ -1,5 +1,3 @@
-json.array! @schedules, partial: "schedules/schedule", as: :schedule
-
 json.array!(@schedules) do |schedule|
   json.extract! schedule, :id, :title, :description
   json.start schedule.start
