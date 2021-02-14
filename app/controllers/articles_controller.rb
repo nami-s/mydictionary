@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @articles = current_user.article.all.page(params[:page]).per(15).order(" created_at DESC ")
+    @articles = current_user.articles.all.page(params[:page]).per(15).order(" created_at DESC ")
     @categories = current_user.categories.all
   end
 
@@ -16,7 +16,7 @@ class ArticlesController < ApplicationController
       params_update = article_params.except(:name, :radio_category)
       if article_params[:category_id]
         @category = Category.find(article_params[:category_id])
-        @article = current_user.article.new(params_update)
+        @article = current_user.articles.new(params_update)
         @article.category = @category
       else
         @article = current_user.article.new(params_update)
@@ -25,7 +25,7 @@ class ArticlesController < ApplicationController
       params_update = article_params.except(:category_id, :radio_category, :name)
       @category = current_user.categories.new(name: article_params[:name])
       @category.save
-      @article = current_user.article.new(params_update)
+      @article = current_user.articles.new(params_update)
       @article.category = @category
     end
     if @article.save
@@ -37,11 +37,11 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = current_user.article.find(params[:id])
+    @article = current_user.articles.find(params[:id])
   end
 
   def edit
-    @article = current_user.article.find(params[:id])
+    @article = current_user.articles.find(params[:id])
     @categories = current_user.categories.all
   end
 
@@ -70,7 +70,7 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article = current_user.article.find(params[:id])
+    @article = current_user.articles.find(params[:id])
     @article.destroy
     redirect_to articles_path
   end
