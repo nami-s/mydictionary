@@ -17,19 +17,19 @@
 //= require moment
 //= require fullcalendar
 //= require activestorage
-/*global*/
 /*global flatpickr*/
 //= require flatpickr
 //= require flatpickr/l10n/ja
 //= require turbolinks
 //= require_tree .
+
 document.addEventListener("turbolinks:load", function(){
 // document.addEventListener('turbolinks:load', () => {
-  const TODAY = new Date(new Date().setHours(0, 0, 0, 0));
+  const today = new Date(new Date().setHours(0, 0, 0, 0));
   flatpickr.localize(flatpickr.l10ns.ja);
   flatpickr('#flatpickr',{
   disableMobile: true,
-  maxDate: TODAY
+  maxDate: today
   });
 });
 
