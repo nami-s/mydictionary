@@ -24,12 +24,11 @@
 //= require_tree .
 
 document.addEventListener("turbolinks:load", function(){
-// document.addEventListener('turbolinks:load', () => {
   const today = new Date(new Date().setHours(0, 0, 0, 0));
   flatpickr.localize(flatpickr.l10ns.ja);
   flatpickr('#flatpickr',{
   disableMobile: true,
-  maxDate: today
+  maxDate: today,
   });
 });
 
