@@ -23,8 +23,8 @@
 //= require flatpickr/l10n/ja
 //= require turbolinks
 //= require_tree .
-
-document.addEventListener('turbolinks:load', () => {
+document.addEventListener("turbolinks:load", function(){
+// document.addEventListener('turbolinks:load', () => {
   const TODAY = new Date(new Date().setHours(0, 0, 0, 0));
   flatpickr.localize(flatpickr.l10ns.ja);
   flatpickr('#flatpickr',{
