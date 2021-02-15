@@ -38,7 +38,13 @@ a.fc-more {
   color: black;
 }
 
-.fc-day.fc-widget-content.fc-mon.fc-today {
+.fc-day.fc-widget-content.fc-mon.fc-today,
+.fc-day.fc-widget-content.fc-tue.fc-today,
+.fc-day.fc-widget-content.fc-wed.fc-today,
+.fc-day.fc-widget-content.fc-thu.fc-today,
+.fc-day.fc-widget-content.fc-fri.fc-today,
+.fc-day.fc-widget-content.fc-sat.fc-today,
+.fc-day.fc-widget-content.fc-sun.fc-today,{
   background-color: #EEEEEE;
   opacity: 0.5;
 }
