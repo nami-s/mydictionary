@@ -3,7 +3,7 @@ class SchedulesController < ApplicationController
 
   # GET /schedules or /schedules.json
   def index
-    @schedules = Schedule.all
+    @schedules = current_user.schedules.all
   end
 
   # GET /schedules/1 or /schedules/1.json
@@ -22,10 +22,11 @@ class SchedulesController < ApplicationController
   # POST /schedules or /schedules.json
   def create
     @schedule = Schedule.new(schedule_params)
+    @schedule.user_id = current_user.id
 
     respond_to do |format|
       if @schedule.save
-        format.html { redirect_to @schedule, notice: "Schedule was successfully created." }
+        format.html { redirect_to schedules_path, notice: "Schedule was successfully created." }
         format.json { render :show, status: :created, location: @schedule }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -59,7 +60,7 @@ class SchedulesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_schedule
-      @schedule = Schedule.find(params[:id])
+      @schedule = current_user.schedules.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

@@ -14,7 +14,7 @@
       <%= form.label :スケジュール名 %>
     </div>
     <div class="col-5">
-      <%= form.text_field :title, size: 20 %>
+      <%= form.text_field :title, style: "background-color:transparent; border-color; black; border-width: 1px;", size: 20 %>
     </div>
   </div>
   <div class="row scheduleform">
@@ -22,7 +22,7 @@
     <%= form.label :スケジュール内容 %>
     </div>
     <div class="col-5">
-      <%= form.text_area :description, size: "19x5" %>
+      <%= form.text_area :description, style: "background-color:transparent; border-color: black", size: "19x5" %>
     </div>
   </div>
   <div class="row scheduleform">
@@ -30,7 +30,7 @@
       <%= form.label :開始時間 %>
     </div>
     <div class="col-5">
-      <%= form.text_field :start, :placeholder => "日時", id: "flatpickr", type: "text", readonly: "", size: 20 %>
+      <%= form.text_field :start, :placeholder => "日時", id: "flatpickr", type: "text", readonly: "", style: "background-color:transparent; border-color; black; border-width: 1px;", size: 20 %>
     </div>
   </div>
   <div class="row scheduleform">
@@ -38,7 +38,7 @@
       <%= form.label :終了時間 %>
     </div>
     <div class="col-5">
-      <%= form.text_field :end, :placeholder => "日時", id: "flatpickr", type: "text", readonly: "", size: 20 %>
+      <%= form.text_field :end, :placeholder => "日時", id: "flatpickr", type: "text", readonly: "", style: "background-color:transparent; border-color; black; border-width: 1px;", size: 20 %>
     </div>
   </div>
   <div class="row justify-content-end scheduleform">

@@ -1,8 +1,12 @@
-<div class="container">
-<%= render "layouts/header" %>
-  <h1>Schedules</h1>
-  <%= link_to 'New Schedule', new_schedule_path, class: "btn btn-outline-dark" %>
-  <div class="row" style="margin:50px;">
+<div class="container schedule">
+  <%= render "layouts/header" %>
+  <div class="row justify-content-center mt-3">
+    <h1>Schedules</h1>
+  </div>
+  <div class="row justify-content-center mt-1 mb-2">
+    <%= link_to 'New Schedule', new_schedule_path, class: "btn btn-outline-dark" %>
+  </div>
+  <div class="row" style="margin: 0 150px; padding: 0 0 50px 0;">
     <div id='calendar'></div>
   </div>
 </div>

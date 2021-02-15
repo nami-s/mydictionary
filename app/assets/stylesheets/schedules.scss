@@ -2,10 +2,43 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.container.schedule {
+  background-image: image-url("schedule.jpg");
+  background-size: cover;
+  // background-attachment: fixed;
+  // background-position: center;
+  max-width: 100%;
+  min-height: 100vh;
+  // width: 100%;
+  height: auto;
+}
+
 .row.schedule{
   padding-top: 50px;
 }
 
 .row.scheduleform{
   padding-top: 5px;
+}
+
+.fc-unthemed td.fc-day,
+.fc-unthemed th.fc-day-header,
+.fc-unthemed thead.fc-head,
+.fc-unthemed tbody.fc-body,
+.fc-unthemed td.fc-head-container,
+.fc-unthemed td.fc-widget-content{
+  border-color: black;
+}
+
+.fc-ltr .fc-basic-view .fc-day-top span.fc-day-number{
+  float: left;
+}
+
+a.fc-more {
+  color: black;
+}
+
+.fc-day.fc-widget-content.fc-mon.fc-today {
+  background-color: #EEEEEE;
+  opacity: 0.5;
 }

@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :articles, dependent: :destroy
   has_many :categories, dependent: :destroy
   has_many :checks, dependent: :destroy
+  has_many :schedules, dependent: :destroy
 
   validates :name, presence: true
 
