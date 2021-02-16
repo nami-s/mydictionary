@@ -1,13 +1,15 @@
 class SchedulesController < ApplicationController
-  before_action :set_schedule, only: %i[ show edit update destroy ]
+  before_action :set_schedule, only: %i[ show edit update destroy update_datetime]
 
   # GET /schedules or /schedules.json
   def index
     @schedules = current_user.schedules.all
+    @schedule = Schedule.new
   end
 
   # GET /schedules/1 or /schedules/1.json
   def show
+    render layout: false
   end
 
   # GET /schedules/new
@@ -24,15 +26,16 @@ class SchedulesController < ApplicationController
     @schedule = Schedule.new(schedule_params)
     @schedule.user_id = current_user.id
 
-    respond_to do |format|
+    # respond_to do |format|
       if @schedule.save
-        format.html { redirect_to schedules_path, notice: "Schedule was successfully created." }
-        format.json { render :show, status: :created, location: @schedule }
+        redirect_to schedules_path
+        # format.html { redirect_to schedules_path, notice: "Schedule was successfully created." }
+        # format.json { render :show, status: :created, location: @schedule }
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @schedule.errors, status: :unprocessable_entity }
+        # format.html { render :_new, status: :unprocessable_entity }
+        # format.json { render json: @schedule.errors, status: :unprocessable_entity }
       end
-    end
+    # end
   end
 
   # PATCH/PUT /schedules/1 or /schedules/1.json
@@ -46,6 +49,10 @@ class SchedulesController < ApplicationController
         format.json { render json: @schedule.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def update_datetime
+    @schedule.update(start: params[:start], end: params[:end])
   end
 
   # DELETE /schedules/1 or /schedules/1.json

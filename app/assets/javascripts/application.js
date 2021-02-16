@@ -14,14 +14,22 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require rails-ujs
-//= require moment
-//= require fullcalendar
 //= require activestorage
 /*global flatpickr*/
 //= require flatpickr
 //= require flatpickr/l10n/ja
 //= require turbolinks
 //= require_tree .
+
+document.addEventListener("turbolinks:load", function(){
+  const TODAY = new Date(new Date().setHours(0, 0, 0, 0));
+  flatpickr.localize(flatpickr.l10ns.ja);
+  flatpickr('.flatpickr',{
+  disableMobile: true,
+  enableTime: true,
+  });
+});
+
 
 $(document).on('turbolinks:load', function () {
   function clearCalendar() {
@@ -34,20 +42,22 @@ $(document).on('turbolinks:load', function () {
         height: 700,
         contentHeight: 'auto',
         aspectRatio: 1.35,
-        eventLimit: 4,
+        eventLimit: true,
         views: {
           dayGridMonth: {
             eventLimit: 4
           }
         },
-
         dayPopoverFormat: 'M/D ddd曜日',
         events: '/schedules.json',
-        viewDisplay: function(view) {
+        eventClick: function(event) {
+          if (event.url) {
+            onShowModal(event.url);
+            return false;
+          }
         },
-        windowResize: function(view) {
-        },
-        dayClick: function () {
+        eventDrop: function(info){
+          scheduleUpdatetime(info);
         },
         titleFormat: 'YYYY年 M月',
         dayNamesShort: ['日', '月', '火', '水', '木', '金', '土'],
@@ -68,6 +78,7 @@ $(document).on('turbolinks:load', function () {
           day: '日'
         },
         editable: true,
+        eventResizableFromStart:true,
         timeFormat: "HH:mm",
         eventColor: 'gray',
         eventTextColor: '#white',
@@ -80,15 +91,60 @@ $(document).on('turbolinks:load', function () {
   }
 });
 
-
-
-document.addEventListener("turbolinks:load", function(){
-  const TODAY = new Date(new Date().setHours(0, 0, 0, 0));
-  flatpickr.localize(flatpickr.l10ns.ja);
-  flatpickr('#flatpickr',{
-  disableMobile: true,
-  enableTime: true,
+function onShowModal(url){
+  $.ajax({
+    url: url,
+    type: 'GET',
+    dataType: 'html'
+  })
+  .done(function(data){
+    /* 通信成功時 */
+    $('#modalForm3').html(data); //取得したHTMLを.resultに反映
+    $('#modalForm2').modal("show");
+  })
+  .fail(function(data){
+    /* 通信失敗時 */
+    alert('通信失敗！');
   });
-});
+}
+
+function scheduleUpdatetime(info){
+  var start = info.start._i[0] +'-'+ (parseInt(info.start._i[1])+1) +'-'+ info.start._i[2] + ' ' + info.start._i[3] + ':' + info.start._i[4];
+  if (info.end){
+    var end = info.end._i[0] +'-'+ (parseInt(info.end._i[1])+1) +'-'+ info.end._i[2] + ' ' + info.end._i[3] + ':' + info.end._i[4];
+  }
+  else{
+    var end = info.start._i[0] +'-'+ (parseInt(info.start._i[1])+1) +'-'+ info.start._i[2] + ' ' + info.start._i[3] + ':' + info.start._i[4];
+  }
+  var id = info.id;
+  var url = '/schedules/update_datetime?id='+ id +'&start='+ start + '&end=' + end;
+  $.ajax({
+    url: url,
+    /* 自サイトのドメインであれば、https://kinocolog.com/ajax/test.html というURL指定も可 */
+    type: 'GET',
+    dataType: 'html'
+  })
+  .done(function(data){
+        /* 通信成功時 */
+  })
+  .fail(function(data){
+    alert('通信失敗！'); /* 通信失敗時 */
+  });
+}
 
 
+// function onEditModal(url){
+//   $.ajax({
+//     url: url,
+//     type: 'GET',
+//     dataType: 'html'
+//   })
+//   .done(function(data){
+//     /* 通信成功時 */
+//     $('#modalForm6').html(data);
+//     $('#modalForm5').modal("show");
+//   })
+//   .fail(function(data){
+//     alert('通信失敗！');/* 通信失敗時 */
+//   });
+// }

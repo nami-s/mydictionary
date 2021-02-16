@@ -4,8 +4,33 @@
     <h1>Schedules</h1>
   </div>
   <div class="row justify-content-center mt-1 mb-2">
-    <%= link_to 'New Schedule', new_schedule_path, class: "btn btn-outline-dark" %>
+    <button type="button" class= "btn btn-outline-dark" data-toggle="modal" data-target="#modalForm1" data-cusno=1 data-visitday="2019-07-01">
+      New Schedule
+    </button>
+    <div class="modal fade" id="modalForm1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content" id="modalForm4">
+          <%= render "schedules/new", schedule: @schedule %>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <div class="modal fade" id="modalForm2" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content" id="modalForm3" style="padding: 20px; margin: 20px;">
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalForm5" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content" id="modalForm6" style="padding: 20px; margin: 20px;">
+        <%= render 'schedules/edit', schedule: @schedule %>
+      </div>
+    </div>
+  </div>
+  
   <div class="row" style="margin: 0 150px; padding: 0 0 50px 0;">
     <div id='calendar'></div>
   </div>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'schedules/update_datetime' => 'schedules#update_datetime'
   resources :schedules
   get 'search' => 'searches#search'
   get 'searches' => 'searches#index'

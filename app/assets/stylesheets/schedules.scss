@@ -14,7 +14,7 @@
 }
 
 .row.schedule{
-  padding-top: 50px;
+  padding-top: 10px;
 }
 
 .row.scheduleform{
@@ -47,4 +47,14 @@ a.fc-more {
 .fc-day.fc-widget-content.fc-sun.fc-today,{
   background-color: #EEEEEE;
   opacity: 0.5;
+}
+
+.container.schedulenew{
+  background-image: image-url("schedule.jpg");
+  background-size: cover;
+}
+
+#modalForm3{
+  background-image: image-url("schedule.jpg");
+  background-size: cover;
 }
