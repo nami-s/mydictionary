@@ -1,17 +1,17 @@
 <div class="row justify-content-center schedule">
-  <strong><%= @schedule.title %></strong>
+  <strong id="schedule__title"><%= @schedule.title %></strong>
 </div>
 <div class="row justify-content-center schedule">
-  <strong><%= @schedule.start.strftime('%m.%d %H:%M') %></strong>〜<strong><%= @schedule.end.strftime('%m.%d %H:%M') %></strong>
+  <strong id="schedule__start"><%= @schedule.start.strftime('%m.%d %H:%M') %></strong>〜<strong id="schedule__end"><%= @schedule.end.strftime('%m.%d %H:%M') %></strong>
 </div>
 <div class="row justify-content-center schedule">
   <div class="col-4">
-    <strong><%= simple_format@schedule.description %></strong>
+    <strong id="schedule__description"><%= simple_format@schedule.description %></strong>
   </div>
 </div>
 <div class="row justify-content-center schedule">
   <div class="col text-center">
-    <button type="button" class= "btn btn-outline-dark" data-toggle="modal" data-target="#modalForm5" data-cusno=1 data-visitday="2019-07-01">
+    <button type="button" class= "btn btn-outline-dark" id="edit-modal" data-toggle="modal" data-target="#modalForm5" data-cusno=1 data-visitday="2019-07-01">
       Edit
     </button>
   <%#= link_to 'Edit', edit_schedule_path(@schedule), class: "btn btn-outline-dark mr-2" %>

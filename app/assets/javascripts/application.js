@@ -30,13 +30,22 @@ document.addEventListener("turbolinks:load", function(){
   });
 });
 
+$(document).on('click', '#edit-modal', function() {
+  var value = $('#schedule__title').text();
+  var valueDescription = $('#schedule__description').text();
+  var valueStart = $('schedule__start').text();
+  var valueEnd = $('schedule__end').text();
+  $('[name="schedule[title]"').val(value);
+  $('[name="schedule[description]"').val(valueDescription);
+  $('[name="schedule[start]"').val(valueStart);
+  $('[name="schedule[end]"').val(valueEnd);
+});
 
 $(document).on('turbolinks:load', function () {
   function clearCalendar() {
     $('#calendar').html('');
   }
   $(document).on('turbolinks:before-cache', clearCalendar);
-
   if ($('#calendar').length) {
       $('#calendar').fullCalendar({
         height: 700,
@@ -57,6 +66,7 @@ $(document).on('turbolinks:load', function () {
           }
         },
         eventDrop: function(info){
+          console.log(info)
           scheduleUpdatetime(info);
         },
         titleFormat: 'YYYY年 M月',
@@ -99,7 +109,7 @@ function onShowModal(url){
   })
   .done(function(data){
     /* 通信成功時 */
-    $('#modalForm3').html(data); //取得したHTMLを.resultに反映
+    $('#modalForm3').html(data);
     $('#modalForm2').modal("show");
   })
   .fail(function(data){
@@ -109,23 +119,22 @@ function onShowModal(url){
 }
 
 function scheduleUpdatetime(info){
+  // console.log(info.start)
   var start = info.start._i[0] +'-'+ (parseInt(info.start._i[1])+1) +'-'+ info.start._i[2] + ' ' + info.start._i[3] + ':' + info.start._i[4];
+  // console.log(start)
   if (info.end){
     var end = info.end._i[0] +'-'+ (parseInt(info.end._i[1])+1) +'-'+ info.end._i[2] + ' ' + info.end._i[3] + ':' + info.end._i[4];
-  }
-  else{
+  }else{
     var end = info.start._i[0] +'-'+ (parseInt(info.start._i[1])+1) +'-'+ info.start._i[2] + ' ' + info.start._i[3] + ':' + info.start._i[4];
   }
   var id = info.id;
   var url = '/schedules/update_datetime?id='+ id +'&start='+ start + '&end=' + end;
   $.ajax({
     url: url,
-    /* 自サイトのドメインであれば、https://kinocolog.com/ajax/test.html というURL指定も可 */
     type: 'GET',
     dataType: 'html'
   })
   .done(function(data){
-        /* 通信成功時 */
   })
   .fail(function(data){
     alert('通信失敗！'); /* 通信失敗時 */
