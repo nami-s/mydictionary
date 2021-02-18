@@ -1,1 +1,1 @@
-$('.check').htmlvar params = $('#SupportForm').serialize();
+$('.check').html("<%= j(render 'checks/check', article: @article) %>");
