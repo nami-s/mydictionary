@@ -66,7 +66,7 @@ $(document).on('turbolinks:load', function () {
           }
         },
         eventDrop: function(info){
-          console.log(info)
+          // console.log(info)
           scheduleUpdatetime(info);
         },
         titleFormat: 'YYYY年 M月',
@@ -140,20 +140,3 @@ function scheduleUpdatetime(info){
     alert('通信失敗！'); /* 通信失敗時 */
   });
 }
-
-
-// function onEditModal(url){
-//   $.ajax({
-//     url: url,
-//     type: 'GET',
-//     dataType: 'html'
-//   })
-//   .done(function(data){
-//     /* 通信成功時 */
-//     $('#modalForm6').html(data);
-//     $('#modalForm5').modal("show");
-//   })
-//   .fail(function(data){
-//     alert('通信失敗！');/* 通信失敗時 */
-//   });
-// }

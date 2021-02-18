@@ -19,7 +19,7 @@ class ArticlesController < ApplicationController
         @article = current_user.articles.new(params_update)
         @article.category = @category
       else
-        @article = current_user.article.new(params_update)
+        @article = current_user.articles.new(params_update)
       end
     elsif article_params[:radio_category] == "new_category"
       params_update = article_params.except(:category_id, :radio_category, :name)
