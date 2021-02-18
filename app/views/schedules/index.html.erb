@@ -18,20 +18,14 @@
 
   <div class="modal fade" id="modalForm2" role="dialog">
     <div class="modal-dialog">
-      <div class="modal-content" id="modalForm3" style="padding: 20px; margin: 20px;">
+      <div class="modal-content" id="modalForm3" style="padding: 20px;">
       </div>
     </div>
   </div>
 
-  <div class="modal fade" id="modalForm5" role="dialog">
-    <div class="modal-dialog">
-      <div class="modal-content" id="modalForm6" style="padding: 20px; margin: 20px;">
-        <%= render 'schedules/edit', schedule: @schedule %>
-      </div>
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <div id='calendar' style="padding: 0 0 50px 0;"></div>
     </div>
-  </div>
-
-  <div class="row" style="margin: 0 150px; padding: 0 0 50px 0;">
-    <div id='calendar'></div>
   </div>
 </div>

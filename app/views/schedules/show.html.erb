@@ -2,7 +2,7 @@
   <strong id="schedule__title"><%= @schedule.title %></strong>
 </div>
 <div class="row justify-content-center schedule">
-  <strong id="schedule__start"><%= @schedule.start.strftime('%m.%d %H:%M') %></strong>〜<strong id="schedule__end"><%= @schedule.end.strftime('%m.%d %H:%M') %></strong>
+  <strong id="schedule__start"><%= @schedule.start.strftime('%Y-%m-%d %H:%M') %></strong>〜<strong id="schedule__end"><%= @schedule.end.strftime('%Y-%m-%d %H:%M') %></strong>
 </div>
 <div class="row justify-content-center schedule">
   <div class="col-4">
@@ -14,6 +14,13 @@
     <button type="button" class= "btn btn-outline-dark" id="edit-modal" data-toggle="modal" data-target="#modalForm5" data-cusno=1 data-visitday="2019-07-01">
       Edit
     </button>
+    <div class="modal fade" id="modalForm5" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content" id="modalForm6" style="padding: 20px;">
+          <%= render 'schedules/edit', schedule: @schedule %>
+        </div>
+      </div>
+    </div>
   <%#= link_to 'Edit', edit_schedule_path(@schedule), class: "btn btn-outline-dark mr-2" %>
   <%= link_to 'Destroy', schedule_path(@schedule), method: :delete, data: { confirm: ' 削除しますか？ ' }, class: "btn btn-outline-dark" %>
   </div>

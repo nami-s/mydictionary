@@ -22,23 +22,21 @@
 //= require_tree .
 
 document.addEventListener("turbolinks:load", function(){
-  const TODAY = new Date(new Date().setHours(0, 0, 0, 0));
   flatpickr.localize(flatpickr.l10ns.ja);
   flatpickr('.flatpickr',{
-  disableMobile: true,
-  enableTime: true,
+    disableMobile: true,
+    enableTime: true,
   });
 });
-
+// Editボタンをクリックしてモダールを開いた時にflatpickrを呼び出している
+document.addEventListener("turbolinks:before-cache", function(){
 $(document).on('click', '#edit-modal', function() {
-  var value = $('#schedule__title').text();
-  var valueDescription = $('#schedule__description').text();
-  var valueStart = $('schedule__start').text();
-  var valueEnd = $('schedule__end').text();
-  $('[name="schedule[title]"').val(value);
-  $('[name="schedule[description]"').val(valueDescription);
-  $('[name="schedule[start]"').val(valueStart);
-  $('[name="schedule[end]"').val(valueEnd);
+  flatpickr.localize(flatpickr.l10ns.ja);
+  flatpickr('.flatpickr',{
+    disableMobile: true,
+    enableTime: true,
+  });
+});
 });
 
 $(document).on('turbolinks:load', function () {

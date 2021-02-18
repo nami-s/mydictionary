@@ -30,7 +30,7 @@
       <%= form.label :開始時間 %>
     </div>
     <div class="col-5">
-      <%= form.date_field :start, :placeholder => "日時", class: "flatpickr", readonly: "", style: "background-color:transparent; border-color; black; border-width: 1px;", size: 20 %>
+      <%= form.datetime_field :start, :placeholder => "日時", class: "flatpickr", readonly: "", style: "background-color:transparent; border-color; black; border-width: 1px;", size: 20 %>
     </div>
   </div>
   <div class="row scheduleform">
@@ -38,7 +38,7 @@
       <%= form.label :終了時間 %>
     </div>
     <div class="col-5">
-      <%= form.date_field :end, :placeholder => "日時", class: "flatpickr", readonly: "", style: "background-color:transparent; border-color; black; border-width: 1px;", size: 20 %>
+      <%= form.datetime_field :end, :placeholder => "日時", class: "flatpickr", readonly: "", style: "background-color:transparent; border-color; black; border-width: 1px;", size: 20 %>
     </div>
   </div>
   <div class="row justify-content-end scheduleform">

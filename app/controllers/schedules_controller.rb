@@ -42,7 +42,7 @@ class SchedulesController < ApplicationController
   def update
     respond_to do |format|
       if @schedule.update(schedule_params)
-        format.html { redirect_to @schedule, notice: "Schedule was successfully updated." }
+        format.html { redirect_to schedules_path, notice: "Schedule was successfully updated." }
         format.json { render :show, status: :ok, location: @schedule }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -68,6 +68,8 @@ class SchedulesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_schedule
       @schedule = current_user.schedules.find(params[:id])
+      logger.debug(@schedule.start)
+      logger.debug(@schedule.end)
     end
 
     # Only allow a list of trusted parameters through.
