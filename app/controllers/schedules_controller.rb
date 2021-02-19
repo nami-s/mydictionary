@@ -41,15 +41,16 @@ class SchedulesController < ApplicationController
 
   # PATCH/PUT /schedules/1 or /schedules/1.json
   def update
-    respond_to do |format|
+    # respond_to do |format|
       if @schedule.update(schedule_params)
-        format.html { redirect_to schedules_path, notice: "Schedule was successfully updated." }
-        format.json { render :show, status: :ok, location: @schedule }
+        redirect_to schedules_path
+        # format.html { redirect_to schedules_path, notice: "Schedule was successfully updated." }
+        # format.json { render :show, status: :ok, location: @schedule }
       else
-        format.html { render :_edit, status: :unprocessable_entity }
-        format.json { render json: @schedule.errors, status: :unprocessable_entity }
+        # format.html { render :_edit, status: :unprocessable_entity }
+        # format.json { render json: @schedule.errors, status: :unprocessable_entity }
       end
-    end
+    # end
   end
 
   def update_datetime
@@ -69,8 +70,6 @@ class SchedulesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_schedule
       @schedule = current_user.schedules.find(params[:id])
-      logger.debug(@schedule.start)
-      logger.debug(@schedule.end)
     end
 
     # Only allow a list of trusted parameters through.
