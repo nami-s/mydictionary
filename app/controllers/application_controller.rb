@@ -18,8 +18,8 @@ class ApplicationController < ActionController::Base
   end
 
   def search_product
-    @p = current_user.articles.ransack(params[:q])
-    @results = @p.result.page(params[:page]).per(15).order(" created_at DESC ")
+    @search = current_user.articles.ransack(params[:q])
+    @results = @search.result.page(params[:page]).per(15).order(" created_at DESC ")
     @categories = current_user.categories.all
   end
 
