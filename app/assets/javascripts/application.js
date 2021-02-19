@@ -29,7 +29,7 @@ document.addEventListener("turbolinks:load", function(){
   });
 });
 // Editボタンをクリックしてモダールを開いた時にflatpickrを呼び出している
-document.addEventListener("turbolinks:before-cache", function(){
+// document.addEventListener("turbolinks:before-cache", function(){
 $(document).on('click', '#edit-modal', function() {
   flatpickr.localize(flatpickr.l10ns.ja);
   flatpickr('.flatpickr',{
@@ -37,7 +37,7 @@ $(document).on('click', '#edit-modal', function() {
     enableTime: true,
   });
 });
-});
+// });
 
 $(document).on('turbolinks:load', function () {
   function clearCalendar() {
