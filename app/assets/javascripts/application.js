@@ -88,12 +88,13 @@ $(document).on('turbolinks:load', function () {
         editable: true,
         eventResizableFromStart:true,
         timeFormat: "HH:mm",
-        eventColor: 'gray',
-        eventTextColor: '#white',
+        eventColor: 'white',
+        eventTextColor: 'black',
         eventRender: function(event, element) {
+          element.css("opacity", "0.8");
           element.css("font-size", "0.8em");
-          element.css("padding", "0px");
-          element.css("text-align", "center");
+          element.css("padding", "1px");
+          // element.css("text-align", "center");
         }
       });
   }
