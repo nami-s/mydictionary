@@ -20,6 +20,7 @@ class SchedulesController < ApplicationController
 
   # GET /schedules/1/edit
   def edit
+    render layout: false
   end
 
   # POST /schedules or /schedules.json

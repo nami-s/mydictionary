@@ -11,13 +11,12 @@
 </div>
 <div class="row justify-content-center schedule">
   <div class="col text-center">
-    <button type="button" class= "btn btn-outline-dark" id="edit-modal" data-toggle="modal" data-target="#modalForm5" data-cusno=1 data-visitday="2019-07-01">
+    <button type="button" class= "btn btn-outline-dark" id="edit-modal" data-toggle="modal" data-target="#modalForm5" data-cusno=1 data-visitday="2019-07-01" data-path="<%=edit_schedule_path(@schedule)%>">
       Edit
     </button>
     <div class="modal fade" id="modalForm5" role="dialog">
       <div class="modal-dialog">
         <div class="modal-content" id="modalForm6" style="padding: 20px;">
-          <%= render 'schedules/edit', schedule: @schedule %>
         </div>
       </div>
     </div>

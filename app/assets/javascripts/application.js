@@ -22,22 +22,15 @@
 //= require_tree .
 
 document.addEventListener("turbolinks:load", function(){
-  flatpickr.localize(flatpickr.l10ns.ja);
-  flatpickr('.flatpickr',{
-    disableMobile: true,
-    enableTime: true,
-  });
+  initFlatpickr();
 });
 // Editボタンをクリックしてモダールを開いた時にflatpickrを呼び出している
-// document.addEventListener("turbolinks:before-cache", function(){
+document.addEventListener("turbolinks:load", function(){
 $(document).on('click', '#edit-modal', function() {
-  flatpickr.localize(flatpickr.l10ns.ja);
-  flatpickr('.flatpickr',{
-    disableMobile: true,
-    enableTime: true,
-  });
+  var url = $("#edit-modal").attr("data-path");
+  onShowModal(url,'#modalForm6','#modalForm5',true);
 });
-// });
+});
 
 $(document).on('turbolinks:load', function () {
   function clearCalendar() {
@@ -59,7 +52,7 @@ $(document).on('turbolinks:load', function () {
         events: '/schedules.json',
         eventClick: function(event) {
           if (event.url) {
-            onShowModal(event.url);
+            onShowModal(event.url,'#modalForm3','#modalForm2',false);
             return false;
           }
         },
@@ -100,7 +93,7 @@ $(document).on('turbolinks:load', function () {
   }
 });
 
-function onShowModal(url){
+function onShowModal(url,innerId,modalId,flatpickrFlag){
   $.ajax({
     url: url,
     type: 'GET',
@@ -108,14 +101,26 @@ function onShowModal(url){
   })
   .done(function(data){
     /* 通信成功時 */
-    $('#modalForm3').html(data);
-    $('#modalForm2').modal("show");
+    $(innerId).html(data);
+    $(modalId).modal("show");
+    if(flatpickrFlag){
+      initFlatpickr();
+    }
   })
   .fail(function(data){
     /* 通信失敗時 */
     alert('通信失敗！');
   });
 }
+
+function initFlatpickr(){
+  flatpickr.localize(flatpickr.l10ns.ja);
+  flatpickr('.flatpickr',{
+    disableMobile: true,
+    enableTime: true,
+  });
+}
+
 
 function scheduleUpdatetime(info){
   // console.log(info.start)

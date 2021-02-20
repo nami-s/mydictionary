@@ -18,6 +18,13 @@ class ApplicationController < ActionController::Base
   end
 
   def search_product
+    words = params[:q].delete(:title_or_body_cont) if params[:q].present?
+    if words.present?
+      params[:q][:groupings] = []
+      words.split(/[ 　]/).each_with_index do |word, i|
+        params[:q][:groupings][i] = { title_or_body_cont: word }
+      end
+    end
     @search = current_user.articles.ransack(params[:q])
     @results = @search.result.page(params[:page]).per(15).order(" created_at DESC ")
     @categories = current_user.categories.all
