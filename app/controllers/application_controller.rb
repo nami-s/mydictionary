@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
     words = params[:q].delete(:title_or_body_cont) if params[:q].present?
     if words.present?
       params[:q][:groupings] = []
-      words.split(/[ 　]/).each_with_index do |word, i|
+      words.split(/[\f\n\r\t\v 　]/).each_with_index do |word, i|  # 改行、半角全角スペースで区切られた箇所をハッシュにしている
         params[:q][:groupings][i] = { title_or_body_cont: word }
       end
     end
