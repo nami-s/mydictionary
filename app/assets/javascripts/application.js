@@ -24,7 +24,7 @@
 document.addEventListener("turbolinks:load", function(){
   initFlatpickr();
 });
-// Editボタンをクリックしてモダールを開いた時にflatpickrを呼び出している
+// Editボタンをクリックしてモダールを開いている
 document.addEventListener("turbolinks:load", function(){
 $(document).on('click', '#edit-modal', function() {
   var url = $("#edit-modal").attr("data-path");
@@ -57,7 +57,6 @@ $(document).on('turbolinks:load', function () {
           }
         },
         eventDrop: function(info){
-          // console.log(info)
           scheduleUpdatetime(info);
         },
         titleFormat: 'YYYY年 M月',
@@ -87,7 +86,6 @@ $(document).on('turbolinks:load', function () {
           element.css("opacity", "0.8");
           element.css("font-size", "0.8em");
           element.css("padding", "1px");
-          // element.css("text-align", "center");
         }
       });
   }
@@ -99,16 +97,14 @@ function onShowModal(url,innerId,modalId,flatpickrFlag){
     type: 'GET',
     dataType: 'html'
   })
-  .done(function(data){
-    /* 通信成功時 */
+  .done(function(data){   // 通信成功
     $(innerId).html(data);
     $(modalId).modal("show");
-    if(flatpickrFlag){
+    if(flatpickrFlag){    // イベントをクリックした時はflatpickrが不要のためif文を使って判断させている
       initFlatpickr();
     }
   })
-  .fail(function(data){
-    /* 通信失敗時 */
+  .fail(function(data){   // 通信失敗
     alert('通信失敗！');
   });
 }
@@ -123,9 +119,7 @@ function initFlatpickr(){
 
 
 function scheduleUpdatetime(info){
-  // console.log(info.start)
   var start = info.start._i[0] +'-'+ (parseInt(info.start._i[1])+1) +'-'+ info.start._i[2] + ' ' + info.start._i[3] + ':' + info.start._i[4];
-  // console.log(start)
   if (info.end){
     var end = info.end._i[0] +'-'+ (parseInt(info.end._i[1])+1) +'-'+ info.end._i[2] + ' ' + info.end._i[3] + ':' + info.end._i[4];
   }else{
@@ -141,6 +135,6 @@ function scheduleUpdatetime(info){
   .done(function(data){
   })
   .fail(function(data){
-    alert('通信失敗！'); /* 通信失敗時 */
+    alert('通信失敗！'); 
   });
 }
