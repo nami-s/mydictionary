@@ -7,15 +7,15 @@
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
       <div class="field">
-        <%= f.label :名前 %><br />
-        <%= f.text_field :name, autofocus: true, autocomplete: "name", style: "background-color:transparent; border-color: black; border-width: 1px;" %>
+        <%= f.label :名前 %><br>
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", style: "background-color: transparent; border-color: black; border-width: 1px;" %>
       </div>
-      <div class="field">
-        <%= f.label :メールアドレス %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", style: "background-color:transparent; border-color: black; border-width: 1px;" %>
+      <div class="field pt-2">
+        <%= f.label :メールアドレス %><br>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", style: "background-color: transparent; border-color: black; border-width: 1px;" %>
       </div><br>
       <div class="actions text-right">
-        <%= f.submit " 編集 ", style: "background-color:transparent; border-color: black; border-width: 1px;" %>
+        <%= f.submit " 編集 ", class: "btn btn-outline-dark" %>
       </div>
     <% end %>
   </div>
