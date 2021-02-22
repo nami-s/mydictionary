@@ -1,43 +1,41 @@
 <div class="container note">
   <%= render "layouts/header" %>
-  <div class="row justify-content-center" style="padding-top: 30px; padding-bottom: 0px; margin-bottom: 0px; margin-right: 140px;">
+  <div class="row article justify-content-center pr-5">
     <h1>EDIT</h1>
   </div>
   <div class="row justify-content-center">
     <%= render "devise/shared/error_messages", resource: @article %>
   </div>
-  <div class="row justify-content-center" style="margin-left: 180px; margin-bottom: 10px; padding-top: 0px;">
+  <div class="row justify-content-center pr-5">
     <%= link_to "削除", article_path(@article), method: :delete, data: {confirm: "削除しますか？"}, class: "btn  bg-transparent btn-outline-dark" %>
   </div>
+  <div class="row justify-content-center pr-5 pt-2">
   <%= form_with model: @article, method: :patch, local: true do |f| %>
-  <div class="row justify-content-center" style="padding-right: 100px;">
-    <div class="col text-center">
-      <div class="form-group pr-3">
-        <%= f.text_field :title, :placeholder => "タイトル", style: "background-color:transparent; border-color: black; border-width: 1px;", size: 20 %>
-      </div>
-      <div class="form-group">
-        <%= f.radio_button :radio_category, "existing_category", {:checked => true} %>既存のカテゴリーから選択<br>
-        <%= f.collection_select :category_id, @categories, :id, :name, selected: @article.category_id %>
-      </div>
-      <div class="form-group pr-3">
-        <%= f.radio_button :radio_category, "new_category" %>新しくカテゴリーを作成<br>
-        <%= f.text_field :name, :placeholder => "カテゴリー", style: "background-color:transparent; border-color: black; border-width: 1px; margin-left: 9px;", size: 20 %>
-      </div>
-      <div class="form-group" style="padding-right: 100px">
-        <%= f.radio_button :radio_image, "existing_image", {:checked => true} %>既存の画像<br>
-        <%= f.radio_button :radio_image, "remove_image" %>画像を削除<br>
-        <%= f.radio_button :radio_image, "update_image" %>画像を変更<br>
-      </div>
-      <div class="form-group" style="padding-left: 120px">
-        <%= f.attachment_field :image %>
-      </div>
-      <div class="form-group">
-        <%= f.text_area :body, :placeholder => "本文", style: "background-color:transparent; border-color: black", size: "30x5" %>
-      </div>
-      <div class="form-group" style="padding-left: 200px">
-        <%= f.submit " 更新 ", style: "background-color:transparent; border-color: black; border-width: 1px;" %>
-      </div>
+    <div class="field pt-2">
+      <%= f.text_field :title, :placeholder => "タイトル", style: "background-color:transparent; border-color: black; border-width: 1px;", size: 20 %>
     </div>
-  </div>
+    <div class="field pt-2">
+      <%= f.radio_button :radio_category, "existing_category", {:checked => true} %>既存のカテゴリーから選択<br>
+      <%= f.collection_select :category_id, @categories, :id, :name, selected: @article.category_id %>
+    </div>
+    <div class="field pt-2">
+      <%= f.radio_button :radio_category, "new_category" %>新しくカテゴリーを作成<br>
+      <%= f.text_field :name, :placeholder => "カテゴリー", style: "background-color:transparent; border-color: black; border-width: 1px;", size: 20 %>
+    </div>
+    <div class="field pt-2">
+      <%= f.radio_button :radio_image, "existing_image", {:checked => true} %>既存の画像<br>
+      <%= f.radio_button :radio_image, "remove_image" %>画像を削除<br>
+      <%= f.radio_button :radio_image, "update_image" %>画像を変更<br>
+    </div>
+    <div class="field pt-2">
+      <%= f.attachment_field :image %>
+    </div>
+    <div class="field pt-2">
+      <%= f.text_area :body, :placeholder => "本文", style: "background-color:transparent; border-color: black", size: "30x5" %>
+    </div>
+    <div class="field pt-5 text-center">
+      <%= f.submit " 更新 ", class: "btn btn-outline-dark" %>
+    </div>
   <% end %>
+  </div>
 </div>

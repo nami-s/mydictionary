@@ -9,6 +9,8 @@
   background-position: center;
   max-width: 100%;
   min-height: 100vh;
+  // width: 100%;
+  // height: auto;
 }
 
 .container.articles {
@@ -18,6 +20,8 @@
   background-position: center;
   max-width: 100%;
   min-height: 100vh;
+  // width: 100%;
+  // height: auto;
 }
 
 .row.articles{
@@ -43,11 +47,16 @@
   background-position: center;
   max-width: 100%;
   min-height: 100vh;
+  // width: 100%;
+  // height: auto;
 }
 
 .row.article {
   padding-top: 30px;
-  font-size: 20px;
+}
+
+.row.article h1{
+  font-weight: 900;
 }
 
 .row.article-title {
