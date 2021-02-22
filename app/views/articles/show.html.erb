@@ -1,16 +1,16 @@
 <div class="container article">
   <%= render "layouts/header" %>
   <div class="row justify-content-center articles">
-    <h1><%= @article.title %> dictionary</h1>
+    <h1><%= @article.title %></h1>
   </div>
   <div class="row justify-content-center article-title">
-    <%= @article.category.name %>
+    <%= @article.category.name.truncate(15) %>
   </div>
   <div class="row justify-content-center article">
     <%= attachment_image_tag @article, :image, size: "200x200", class: "rounded-circle" %>
   </div>
   <div class="row justify-content-center article">
-    <div class="col-4">
+    <div class="col-8">
       <%= simple_format@article.body %>
     </div>
   </div>
