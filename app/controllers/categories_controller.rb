@@ -19,7 +19,7 @@ class CategoriesController < ApplicationController
 
   def show
     @category = current_user.categories.find(params[:id])
-    @articles = @category.articles.all
+    @articles = @category.articles.all.page(params[:page]).per(15).order(" created_at DESC ")
   end
 
   def edit
