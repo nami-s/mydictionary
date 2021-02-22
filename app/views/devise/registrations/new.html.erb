@@ -1,50 +1,48 @@
 <div class="container pt-5 devise ">
-  <div class="row justify-content-center" style="padding-top: 100px;">
+  <div class="row justify-content-center" style="padding-top: 50px;">
     <h1>新規登録</h1>
   </div>
   <div class="row justify-content-center">
-    <div class="col-5 text-right">
+    <div class="col text-center">
       <%= render "devise/shared/links" %>
     </div>
   </div>
-  <div class="row justify-content-center">
+  <div class="row justify-content-center mt-0">
     <div class="col text-center">
       <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
       <div class="row justify-content-center">
-        <div class="col-2 text-right">
-          <%= f.label :名前 %>
-        </div>
-        <%= f.text_field :name, autofocus: true, style: "background-color:transparent; border-color: black; border-width: 1px;" %>
-      </div><br>
-      <div class="row justify-content-center">
-        <div class="col-2 text-right">
-          <%= f.label :メールアドレス %>
-        </div>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", style: "background-color:transparent; border-color: black; border-width: 1px;" %>
-      </div><br>
-      <div class="row justify-content-center">
-        <div class="col-2 text-right">
-          <%= f.label :パスワード %>
-          <% if @minimum_password_length %>
-          （<%= @minimum_password_length %> 文字以上）
-          <% end %>
-        </div>
-        <%= f.password_field :password, autocomplete: "new-password", style: "background-color:transparent; border-color: black; border-width: 1px;" %>
-      </div><br>
-      <div class="row justify-content-center">
-        <div class="col-2 text-right">
-          <%= f.label :パスワード確認 %>
-        </div>
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", style: "background-color:transparent; border-color: black; border-width: 1px;" %>
-      </div><br>
-      <div class="row justify-content-center">
-        <div class="col-5 text-right">
-          <%= f.submit " 登録 ", style: "background-color:transparent; border-color: black; border-width: 1px;" %>
+        <div class="field text-left pb-1">
+          <%= f.label :名前 %><br>
+          <%= f.text_field :name, autofocus: true, style: "background-color:transparent; border-color: black; border-width: 1px;" %>
         </div>
       </div>
-      <% end %>
-      <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: "login btn  bg-transparent btn-outline-dark" %>
+      <div class="row justify-content-center">
+        <div class="field text-left pb-1">
+          <%= f.label :メールアドレス %><br>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", style: "background-color:transparent; border-color: black; border-width: 1px;" %>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="field text-left pb-1">
+          <%= f.label :パスワード %>
+          <% if @minimum_password_length %>
+            (<%= @minimum_password_length %>文字以上)
+          <% end %><br>
+          <%= f.password_field :password, autocomplete: "new-password", style: "background-color:transparent; border-color: black; border-width: 1px;" %>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="field text-left pb-1">
+          <%= f.label :パスワード確認 %><br>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", style: "background-color:transparent; border-color: black; border-width: 1px;" %>
+        </div>
+      </div><br>
+      <div class="row justify-content-center">
+          <%= f.submit " 登録 ", class: "btn  bg-transparent btn-outline-dark" %>
+      </div>
+      <% end %><br>
+      <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: "btn  bg-transparent btn-outline-dark" %>
     </div>
   </div>
 </div>
