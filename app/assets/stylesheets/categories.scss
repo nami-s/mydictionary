@@ -17,14 +17,12 @@
   padding-top: 50px;
 }
 
-.categoryform{
-  background-color: transparent;
-  border-color: black;
-  border-width: 1px;
+.row.category h1{
+  font-weight: 900;
 }
 
 .row.category td{
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .container.categories {
@@ -34,6 +32,4 @@
   background-position: center;
   max-width: 100%;
   min-height: 100vh;
-  width: 100%;
-  height: auto;
 }

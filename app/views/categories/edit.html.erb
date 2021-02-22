@@ -6,10 +6,10 @@
   <div class="row justify-content-center">
     <%= render "devise/shared/error_messages", resource: @category %>
   </div>
-  <div class="row justify-content-center category">
+  <div class="row justify-content-center pt-3">
     <%= form_with model: @category, local: true do |f| %>
       <%= f.text_field :name, :placeholder => "カテゴリー編集", style: "background-color:transparent; border-color; black; border-width: 1px;", size: 30 %>
-      <%= f.submit ' 変更 ', style: "background-color:transparent; border-color; black; border-width: 1px;" %>
+      <%= f.submit ' 更新 ', style: "background-color:transparent; border-color; black; border-width: 1px;" %>
     <% end %>
   </div>
 </div>

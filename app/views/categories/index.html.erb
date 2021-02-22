@@ -6,10 +6,10 @@
   <div class="row justify-content-center">
     <%= render "devise/shared/error_messages", resource: @category %>
   </div>
-  <div class="row justify-content-center category">
+  <div class="row justify-content-center pt-3">
     <%= form_with model: @category, local: true do |f| %>
-      <%= f.text_field :name, :placeholder => "カテゴリー新規登録", :class => "categoryform", size: 30 %>
-      <%= f.submit ' 保存 ', :class => "categoryform" %>
+      <%= f.text_field :name, :placeholder => "カテゴリー新規登録", style: "background-color:transparent; border-color; black; border-width: 1px;", size: 30 %>
+      <%= f.submit ' 保存 ', style: "background-color:transparent; border-color; black; border-width: 1px;" %>
     <% end %>
   </div>
   <div class="row justify-content-center category">
@@ -17,8 +17,8 @@
       <tbody>
       <% @categories.each do |category| %>
         <tr>
-        <td class="pr-5"><%= link_to category.name, category_path(category), class: "text-dark" %></td>
-        <td><%= link_to "編集", edit_category_path(category), class: "btn btn-outline-dark" %></td>
+        <td class="pr-5"><%= link_to category.name.truncate(9), category_path(category), class: "text-dark" %></td>
+        <td><%= link_to "編集", edit_category_path(category), class: "btn btn-outline-dark mr-2" %></td>
         <td><%= link_to "削除", category_path(category), method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-outline-dark" %></td><br>
         </tr>
       <% end %>

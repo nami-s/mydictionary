@@ -6,7 +6,7 @@
   <div class="row justify-content-center">
   <%= render "devise/shared/error_messages", resource: @article %>
   </div>
-  <div class="row justify-content-center" style="margin-right: 10px; padding-top: 0px;">
+  <div class="row justify-content-center pt-0" style="margin-right: 10px;">
     <%= form_with model: @article, local: true do |f| %>
       <div class="field pt-3">
         <%= f.text_field :title, :placeholder => "タイトル", style: "background-color:transparent; border-color: black; border-width: 1px;", size: 20 %>
@@ -25,10 +25,8 @@
       <div class="field pt-3">
         <%= f.text_area :body, :placeholder => "本文", style: "background-color:transparent; border-color: black", size: "30x7" %>
       </div>
-      <div class="row justify-content-center" style="margin-left: 180px; padding-top: 0px;">
-        <div class="field pt-3">
-          <%= f.submit " 保存 ", class: "btn btn-outline-dark" %>
-        </div>
+      <div class="field text-center pt-3">
+        <%= f.submit " 保存 ", class: "btn btn-outline-dark" %>
       </div>
     <% end %>
   </div>
