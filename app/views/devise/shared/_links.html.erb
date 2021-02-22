@@ -3,7 +3,7 @@
 <% end %><br>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "新規登録", new_registration_path(resource_name), class: "btn  bg-transparent btn-outline-dark" %><br />
+  <%= link_to "未登録の方はこちら", new_registration_path(resource_name), class: "btn  bg-transparent btn-outline-dark" %><br />
 <% end %><br>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
