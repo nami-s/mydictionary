@@ -1,11 +1,11 @@
 <div class="container articles">
   <%= render "layouts/header" %>
   <div class="row justify-content-center articles">
-    <h1><%= current_user.name %> dictionary</h1>
+    <h1>Your own dictionary</h1>
   </div>
-  <div class="row justify-content-center" style="padding-left: 300px;">
-    <%= link_to "新規投稿", new_article_path, class: "btn btn-outline-dark mt-1" %>
-    <div class="pl-2"><%= link_to "アカウント編集", edit_user_registration_path, class: "btn btn-outline-dark mt-1" %></div>
+  <div class="row justify-content-center">
+    <%= link_to "新規投稿", new_article_path, class: "btn btn-outline-dark mr-3" %>
+    <%= link_to "アカウント編集", edit_user_registration_path, class: "btn btn-outline-dark" %>
   </div>
   <div class="row justify-content-center articles">
     <table>
@@ -13,7 +13,7 @@
         <% @articles.each do |article| %>
         <tr>
           <td class="pr-5"><%= article.created_at.strftime('%Y.%m.%d') %></td>
-          <td><%= link_to article.title, article_path(article), class: "text-dark" %></td>
+          <td><%= link_to article.title.truncate(10), article_path(article), class: "text-dark" %></td>
         </tr>
         <% end %>
       </tbody>
