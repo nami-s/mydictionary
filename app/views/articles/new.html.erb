@@ -1,6 +1,6 @@
 <div class="container note">
   <%= render "layouts/header" %>
-  <div class="row justify-content-center" style="padding-top: 50px; padding-bottom: 20px; margin-right: 140px;">
+  <div class="row articles justify-content-center mr-5">
     <h1>NEW CREATE</h1>
   </div>
   <div class="row justify-content-center">
@@ -8,26 +8,26 @@
   </div>
   <div class="row justify-content-center" style="margin-right: 10px; padding-top: 0px;">
     <%= form_with model: @article, local: true do |f| %>
-      <div class="form-group">
-        <%= f.text_field :title, :placeholder => "タイトル", style: "background-color:transparent; border-color; black; border-width: 1px;", size: 20 %>
+      <div class="field pt-3">
+        <%= f.text_field :title, :placeholder => "タイトル", style: "background-color:transparent; border-color: black; border-width: 1px;", size: 20 %>
       </div>
-      <div class="form-group">
+      <div class="field pt-3">
         <%= f.radio_button :radio_category, "existing_category", {:checked => true} %>既存のカテゴリーから選択<br>
         <%= f.collection_select :category_id, @categories, :id, :name %>
       </div>
-      <div class="form-group">
+      <div class="field pt-3">
         <%= f.radio_button :radio_category, "new_category" %>新しくカテゴリーを作成<br>
         <%= f.text_field :name, :placeholder => "カテゴリー", style: "background-color:transparent; border-color: black; border-width: 1px;", size: 20 %>
       </div>
-      <div class="form-group">
+      <div class="field pt-3">
         <%= f.attachment_field :image %>
       </div>
-      <div class="form-group">
+      <div class="field pt-3">
         <%= f.text_area :body, :placeholder => "本文", style: "background-color:transparent; border-color: black", size: "30x7" %>
       </div>
       <div class="row justify-content-center" style="margin-left: 180px; padding-top: 0px;">
-        <div class="form-group">
-          <%= f.submit " 保存 ", style: "background-color:transparent; border-color: black; border-width: 1px;" %>
+        <div class="field pt-3">
+          <%= f.submit " 保存 ", class: "btn btn-outline-dark" %>
         </div>
       </div>
     <% end %>
