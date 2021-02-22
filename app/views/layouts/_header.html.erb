@@ -7,20 +7,20 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav ml-auto">
-      <%= link_to "MY PAGE", articles_path, class: "btn btn-outline-dark mr-2 mb-2" %>
-      <%= link_to "CATEGORY", categories_path, class: "btn btn-outline-dark mr-2 mb-2" %>
-      <button type="button" class= "btn btn-outline-dark mr-2 mb-2" data-toggle="modal" data-target="#modalForm" data-cusno=1 data-visitday="2019-07-01">
-          SEARCH
-      </button>
-      <div class="modal fade" id="modalForm" role="dialog">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <%= render "searches/search" %>
+        <%= link_to "MY PAGE", articles_path, class: "btn btn-outline-dark mr-2 mb-2" %>
+        <%= link_to "CATEGORY", categories_path, class: "btn btn-outline-dark mr-2 mb-2" %>
+        <button type="button" class= "btn btn-outline-dark mr-2 mb-2" data-toggle="modal" data-target="#modalForm" data-cusno=1 data-visitday="2019-07-01">
+            SEARCH
+        </button>
+        <div class="modal fade" id="modalForm" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <%= render "searches/search" %>
+            </div>
           </div>
         </div>
-      </div>
-      <%= link_to "SCHEDULE", schedules_path, class: "btn btn-outline-dark mr-2 mb-2" %>
-      <%= link_to "LOGOUT", destroy_user_session_path, method: :delete, class: "btn btn-outline-dark mr-2 mb-2" %>
+        <%= link_to "SCHEDULE", schedules_path, class: "btn btn-outline-dark mr-2 mb-2" %>
+        <%= link_to "LOGOUT", destroy_user_session_path, method: :delete, class: "btn btn-outline-dark mr-2 mb-2" %>
       </ul>
     </div>
     <% end %>
