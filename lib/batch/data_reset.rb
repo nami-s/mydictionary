@@ -7,3 +7,4 @@ class Batch::DataReset
     p "投稿を全て削除しました"
   end
 end
+
