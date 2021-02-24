@@ -1,6 +1,9 @@
 <div class="row justify-content-center search">
   <%= search_form_for @search, enforce_utf8: false, url: searches_path do |f| %>
   <div class="col search">
+    <%= f.select :sorts, { '投稿が新しい順': 'id desc', '投稿が古い順': 'id asc'} %>
+  </div>
+  <div class="col search">
     <%= f.date_field :created_at_eq, :placeholder => "日付", style: "background-color:transparent; border-color: black; border-width: 1px;", size: 20 %>
   </div>
   <div class="col search">

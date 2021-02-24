@@ -3,6 +3,15 @@
   <div class="row justify-content-center articles">
     <h1>検索結果</h1>
   </div>
+  <div class="row justify-content-center">
+  <%= search_form_for @search, enforce_utf8: false, url: searches_path do |f| %>
+    <%= f.hidden_field :category_id_eq, value: @category_params %>
+    <%= f.hidden_field :created_at_eq, value: @date_params %>
+    <%= f.hidden_field :title_or_body_cont, value: @keyword_params %>
+    <%= f.select :sorts, { '投稿が新しい順': 'id desc', '投稿が古い順': 'id asc' } , { selected: params[:q][:sorts] } , { :class => "p-1", :style => "background-color:transparent; border-color: black; border-width: 1px;", onchange: 'this.form.submit()'} %>
+    <%#= f.submit %>
+  <% end %>
+  </div>
   <div class="row justify-content-center articles">
     <table>
       <tbody>
