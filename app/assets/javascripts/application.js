@@ -112,6 +112,7 @@ function onShowModal(url,innerId,modalId,flatpickrFlag){
 function initFlatpickr(){
   flatpickr.localize(flatpickr.l10ns.ja);
   flatpickr('.flatpickr',{
+    wrap: true,
     disableMobile: true,
     enableTime: true,
   });
@@ -135,6 +136,6 @@ function scheduleUpdatetime(info){
   .done(function(data){
   })
   .fail(function(data){
-    alert('通信失敗！'); 
+    alert('通信失敗！');
   });
 }
