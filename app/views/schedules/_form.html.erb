@@ -9,49 +9,29 @@
       </ul>
     </div>
   <% end %>
-  <div class="row scheduleform">
-    <div class="col-5 text-right">
-      <%= f.label :予定名 %>
+    <div class="row schedule">
+      <%= f.text_field :title, placeholder: "スケジュール名", style: "background-color: transparent; border-color: black; border-width: 1px;", size: 20 %>
     </div>
-    <div class="col-5">
-      <%= f.text_field :title, style: "background-color: transparent; border-color: black; border-width: 1px;", size: 20 %>
+    <div class="row schedule">
+      <%= f.text_area :description, placeholder: "スケジュール内容", style: "background-color: transparent; border-color: black", size: "20x5" %>
     </div>
-  </div>
-  <div class="row scheduleform">
-    <div class="col-5 text-right">
-    <%= f.label :予定内容 %>
-    </div>
-    <div class="col-5">
-      <%= f.text_area :description, style: "background-color: transparent; border-color: black", size: "20x5" %>
-    </div>
-  </div>
-  <div class="row scheduleform">
-    <div class="col-5 text-right">
-      <%= f.label :開始時間 %>
-    </div>
-    <div class="col-5">
+    <div class="row schedule">
       <div class="input-group flatpickr" data-id="strap">
-        <%= f.text_field :start, placeholder: "日時", readonly: "", style: "background-color: transparent; border-color: black; border-width: 1px;", size: 20, :data => {input: ""} %>
+        <%= f.text_field :start, placeholder: "開始時間", readonly: "", style: "background-color: transparent; border-color: black; border-width: 1px;", size: 20, :data => {input: ""} %>
         <a class="input-button" title="toggle" data-toggle>
-          <i class="far fa-calendar-check" style="color: black; font-size: 20px;"></i>
+          <i class="far fa-calendar-check ml-2 pt-1" style="color: black; font-size: 20px;"></i>
         </a>
       </div>
     </div>
-  </div>
-  <div class="row scheduleform">
-    <div class="col-5 text-right">
-      <%= f.label :終了時間 %>
-    </div>
-    <div class="col-5">
+    <div class="row schedule">
       <div class="input-group flatpickr" data-id="strap">
-        <%= f.text_field :end, placeholder: "日時", readonly: "", style: "background-color: transparent; border-color: black; border-width: 1px;", size: 20, :data => {input: ""} %>
+        <%= f.text_field :end, placeholder: "終了時間", readonly: "", style: "background-color: transparent; border-color: black; border-width: 1px;", size: 20, :data => {input: ""} %>
         <a class="input-button" title="toggle" data-toggle>
-          <i class="far fa-calendar-check" style="color: black; font-size: 20px;"></i>
+          <i class="far fa-calendar-check ml-2 pt-1" style="color: black; font-size: 20px;"></i>
         </a>
       </div>
     </div>
-  </div>
-  <div class="row justify-content-end scheduleform">
+    <div class="row schedule">
     <%= f.submit " 登録 ", style: "background-color: transparent; border-color: black; border-width: 1px;", class: "mb-4 mr-5" %>
   </div>
 <% end %>
