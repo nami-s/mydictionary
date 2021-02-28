@@ -62,7 +62,6 @@ $(document).on('turbolinks:load', function () {
         },
         eventDrop: function(info){
           scheduleUpdatetime(info);
-          document.getElementById("calendar").click();
         },
         titleFormat: 'YYYY年 M月',
         dayNamesShort: ['日', '月', '火', '水', '木', '金', '土'],
@@ -92,13 +91,6 @@ $(document).on('turbolinks:load', function () {
           element.css("font-size", "0.8em");
           element.css("padding", "1px");
         },
-        selectable: true,
-        unselect: function (jsEvent, view) {
-          console.log(jsEvent)
-        },
-        select:function(jsEvent){
-           console.log("select")
-        }
       });
   }
 });
@@ -151,10 +143,3 @@ function scheduleUpdatetime(info){
     alert('通信失敗！');
   });
 }
-
-// イベントのaタグに引っ付けている
-// $(document).on('click', "a", function() {
-//   var eventUrl = $(this).attr("href");
-//   onShowModal(eventUrl,'#modalForm3','#modalForm2',false);
-//   return false;
-// });
