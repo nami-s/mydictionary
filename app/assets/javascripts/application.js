@@ -33,6 +33,9 @@ $(document).on('click', '#edit-modal', function() {
 });
 
 $(document).on('turbolinks:load', function () {
+  document.addEventListener('dragend', function(e){
+    console.log('dragend');
+  });
   function clearCalendar() {
     $('#calendar').html('');
   }
@@ -51,13 +54,15 @@ $(document).on('turbolinks:load', function () {
         dayPopoverFormat: 'M/D ddd曜日',
         events: '/schedules.json',
         eventClick: function(event) {
-          if (event.url) {
-            onShowModal(event.url,'#modalForm3','#modalForm2',false);
+          if (event.id) {
+            var url = '/schedules/'+event.id;
+            onShowModal(url,'#modalForm3','#modalForm2',false);
             return false;
           }
         },
         eventDrop: function(info){
           scheduleUpdatetime(info);
+          document.getElementById("calendar").click();
         },
         titleFormat: 'YYYY年 M月',
         dayNamesShort: ['日', '月', '火', '水', '木', '金', '土'],
@@ -86,6 +91,13 @@ $(document).on('turbolinks:load', function () {
           element.css("opacity", "0.8");
           element.css("font-size", "0.8em");
           element.css("padding", "1px");
+        },
+        selectable: true,
+        unselect: function (jsEvent, view) {
+          console.log(jsEvent)
+        },
+        select:function(jsEvent){
+           console.log("select")
         }
       });
   }
@@ -139,3 +151,10 @@ function scheduleUpdatetime(info){
     alert('通信失敗！');
   });
 }
+
+// イベントのaタグに引っ付けている
+// $(document).on('click', "a", function() {
+//   var eventUrl = $(this).attr("href");
+//   onShowModal(eventUrl,'#modalForm3','#modalForm2',false);
+//   return false;
+// });
