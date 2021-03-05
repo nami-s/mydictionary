@@ -12,6 +12,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
+    language = Language.get_data(article_params[:body])
     if article_params[:radio_category] == "existing_category"
       params_update = article_params.except(:name, :radio_category)
       if article_params[:category_id]
@@ -28,6 +29,8 @@ class ArticlesController < ApplicationController
       @article = current_user.articles.new(params_update)
       @article.category = @category
     end
+    @article.score = language['score']
+    @article.magnitude = language['magnitude']
     if @article.save
       redirect_to article_path(@article)
     else
