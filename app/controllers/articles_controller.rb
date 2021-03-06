@@ -50,6 +50,7 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
+    language = Language.get_data(article_params[:body])
     if article_params[:radio_category] == "existing_category"
       params_update = article_params.except(:radio_category, :name)
       @category = Category.find(article_params[:category_id])
@@ -64,6 +65,8 @@ class ArticlesController < ApplicationController
       params_update[:remove_image] = 1
     end
     params_update = params_update.except(:radio_image)
+    @article.score = language['score']
+    @article.magnitude = language['magnitude']
     if @article.update_attributes(params_update)
       redirect_to article_path(@article)
     else

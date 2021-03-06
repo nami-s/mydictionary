@@ -15,7 +15,19 @@
     </div>
   </div>
   <div class="row justify-content-center article" style="padding-left: 300px;">
-    <%= link_to "編集", edit_article_path(@article), class: "btn btn-outline-dark" %><%= @article.sentiment %>
+    <%= link_to "編集", edit_article_path(@article), class: "btn btn-outline-dark" %>
+  </div>
+  <div class="row justify-content-center article">
+    <button class="btn btn-outline-dark" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      Support message to you who are studying
+    </button>
+  </div>
+  <div class="row justify-content-center mt-2">
+    <div class="collapse" id="collapseExample">
+      <div class="card p-2">
+        <%= @article.sentiment %>
+      </div>
+    </div>
   </div>
   <div class="check">
     <%= render 'checks/check', article: @article %>
