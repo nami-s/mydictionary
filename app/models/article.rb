@@ -18,15 +18,15 @@ class Article < ApplicationRecord
     score = self.score
     magnitude = self.magnitude
     if score == 0.0
-      return '安定してきましたね！'
+      return 'ここまでよく頑張りました！ここから先はあなた次第です！'
     elsif score >= 0.1 && magnitude < 5
-      return 'その調子です！'
+      return 'その調子です！自信を持って突き進みましょう！'
     elsif score >= 0.1 && magnitude >= 5
-      return '良い感じです！今後も継続していきましょう！'
+      return 'すごく良い感じです！今後も継続していきましょう！'
     elsif score <= -0.1 && magnitude < 5
-      return '少し自信なさげかな？大丈夫！継続は力なり！'
+      return '少し自信なさげですね。大丈夫！継続は力なり！復習しましょう！'
     elsif score <= -0.1 && magnitude >= 5
-      return 'すごく自信なさげですね。大丈夫！ここから追い上げていきましょう！'
+      return 'すごく自信なさげですね。大丈夫！焦らずここから追い上げていきましょう！'
     end
   end
 
