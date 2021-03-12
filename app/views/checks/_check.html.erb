@@ -1,8 +1,8 @@
 <div class="row justify-content-center article">
   <%= link_to "Click after reading", article_checks_path(article), method: :post, remote: true, class: "btn btn-outline-dark" %>
 </div>
-<div class="row justify-content-center">
-  I checked this page <%= article.checks.count %> times
+<div class="row justify-content-center pt-1">
+  <b>I checked this page <%= article.checks.count %> times</b>
 </div>
 <div class="row justify-content-center article">
   The day I read this book

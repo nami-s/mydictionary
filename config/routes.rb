@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   get 'schedules/update_datetime' => 'schedules#update_datetime'
   resources :schedules
   get 'searches' => 'searches#index'
-  # post 'searches' => 'searches#index'
   root to: 'homes#top'
   devise_for :users, controllers: { registrations: 'users/registrations' }
   devise_scope :user do

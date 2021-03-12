@@ -19,7 +19,6 @@ class ApplicationController < ActionController::Base
 
   def search_product
     # 改行、半角全角スペースで区切られた箇所をハッシュにしている
-
     # Parameters: {"q"=>{"sorts"=>"id asc", "created_at_eq"=>"", "category_id_eq"=>"12", "title_or_body_cont"=>""}, "commit"=>" 検索 "}
     words = params[:q].delete(:title_or_body_cont) if params[:q].present?
     if words.present?
