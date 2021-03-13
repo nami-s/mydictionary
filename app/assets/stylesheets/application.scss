@@ -25,6 +25,9 @@
 
 .container{
   font-family: serif;
+  // 半角文字も改行されるように指定
+  word-break:break-all;
+　word-wrap:break-word;
 }
 
 // スクロールバーを消している
