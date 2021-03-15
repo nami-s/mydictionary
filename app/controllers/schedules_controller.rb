@@ -27,31 +27,16 @@ class SchedulesController < ApplicationController
   def create
     @schedule = Schedule.new(schedule_params)
     @schedule.user_id = current_user.id
-
-    # respond_to do |format|
       if @schedule.save
         redirect_to schedules_path
-        # format.html { redirect_to schedules_path, notice: "Schedule was successfully created." }
-        # format.json { render :show, status: :created, location: @schedule }
-      else
-        # format.html { render :_new, status: :unprocessable_entity }
-        # format.json { render json: @schedule.errors, status: :unprocessable_entity }
       end
-    # end
   end
 
   # PATCH/PUT /schedules/1 or /schedules/1.json
   def update
-    # respond_to do |format|
       if @schedule.update(schedule_params)
         redirect_to schedules_path
-        # format.html { redirect_to schedules_path, notice: "Schedule was successfully updated." }
-        # format.json { render :show, status: :ok, location: @schedule }
-      else
-        # format.html { render :_edit, status: :unprocessable_entity }
-        # format.json { render json: @schedule.errors, status: :unprocessable_entity }
       end
-    # end
   end
 
   def update_datetime

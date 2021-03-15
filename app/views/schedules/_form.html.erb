@@ -1,37 +1,37 @@
+<% if schedule.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
+    <ul>
+    <% schedule.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 <%= form_with(model: schedule, remote: true) do |f| %>
-  <% if schedule.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
-      <ul>
-      <% schedule.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <div class="row schedule">
+    <%= f.text_field :title, placeholder: "スケジュール名", style: "background-color: transparent; border-color: black; border-width: 1px;", size: 20 %>
+  </div>
+  <div class="row schedule">
+    <%= f.text_area :description, placeholder: "スケジュール内容", style: "background-color: transparent; border-color: black", size: "20x5" %>
+  </div>
+  <div class="row schedule">
+    <div class="input-group flatpickr" data-id="strap">
+      <%= f.text_field :start, placeholder: "開始時間", readonly: "", style: "background-color: transparent; border-color: black; border-width: 1px;", size: 20, :data => {input: ""} %>
+      <a class="input-button" title="toggle" data-toggle>
+        <i class="far fa-calendar-check ml-2 pt-1" style="color: black; font-size: 20px;"></i>
+      </a>
     </div>
-  <% end %>
-    <div class="row schedule">
-      <%= f.text_field :title, placeholder: "スケジュール名", style: "background-color: transparent; border-color: black; border-width: 1px;", size: 20 %>
+  </div>
+  <div class="row schedule">
+    <div class="input-group flatpickr" data-id="strap">
+      <%= f.text_field :end, placeholder: "終了時間", readonly: "", style: "background-color: transparent; border-color: black; border-width: 1px;", size: 20, :data => {input: ""} %>
+      <a class="input-button" title="toggle" data-toggle>
+        <i class="far fa-calendar-check ml-2 pt-1" style="color: black; font-size: 20px;"></i>
+      </a>
     </div>
-    <div class="row schedule">
-      <%= f.text_area :description, placeholder: "スケジュール内容", style: "background-color: transparent; border-color: black", size: "20x5" %>
-    </div>
-    <div class="row schedule">
-      <div class="input-group flatpickr" data-id="strap">
-        <%= f.text_field :start, placeholder: "開始時間", readonly: "", style: "background-color: transparent; border-color: black; border-width: 1px;", size: 20, :data => {input: ""} %>
-        <a class="input-button" title="toggle" data-toggle>
-          <i class="far fa-calendar-check ml-2 pt-1" style="color: black; font-size: 20px;"></i>
-        </a>
-      </div>
-    </div>
-    <div class="row schedule">
-      <div class="input-group flatpickr" data-id="strap">
-        <%= f.text_field :end, placeholder: "終了時間", readonly: "", style: "background-color: transparent; border-color: black; border-width: 1px;", size: 20, :data => {input: ""} %>
-        <a class="input-button" title="toggle" data-toggle>
-          <i class="far fa-calendar-check ml-2 pt-1" style="color: black; font-size: 20px;"></i>
-        </a>
-      </div>
-    </div>
-    <div class="row schedule">
+  </div>
+  <div class="row schedule">
     <%= f.submit " 登録 ", style: "background-color: transparent; border-color: black; border-width: 1px;", class: "mb-4 mr-5" %>
   </div>
 <% end %>
