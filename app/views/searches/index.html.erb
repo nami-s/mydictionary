@@ -19,7 +19,7 @@
           <% @results.each do |article| %>
           <tr>
             <td class="pr-5"><%= article.created_at.strftime('%Y.%m.%d') %></td>
-            <td><%= link_to article.title.truncate(9), article_path(article), class: "text-dark" %></td>
+            <td><%= link_to truncate_title(article.title), article_path(article), class: "text-dark" %></td>
           </tr>
           <% end %>
         <% else %>
