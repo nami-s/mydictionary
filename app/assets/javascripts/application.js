@@ -108,8 +108,8 @@ function onShowModal(url,innerId,modalId,flatpickrFlag){
       initFlatpickr();
     }
   })
-  .fail(function(data){   // 通信失敗
-    alert('通信失敗！');
+  .fail(function(){
+    // 通信失敗
   });
 }
 
@@ -138,8 +138,9 @@ function scheduleUpdatetime(info){
     dataType: 'html'
   })
   .done(function(data){
+    // 通信成功
   })
-  .fail(function(data){
-    alert('通信失敗！');
+  .fail(function(){
+    // 通信失敗
   });
 }
