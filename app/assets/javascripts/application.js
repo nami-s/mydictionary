@@ -124,12 +124,11 @@ function initFlatpickr(){
 
 
 function scheduleUpdatetime(info){   // ドラッグ＆ドロップの終了イベントで呼ばれる
-// infoにドロップ先のスタートの日付とエンドの日付が入ってくる
-// infoのスタート、エンド共に配列で入ってくる
+// infoにドロップ先のスタートの日付とエンドの日付が入ってる
+// infoのスタート、エンド共に配列で入ってる
 // 配列の0番目が年、1番目が月（月は0が1月）、2番目が日にち、3番目が時間、4番目が分で入ってくるのでvarのstartに文字列で連結してYYYY-mm-dd hh:iiを作成して代入
 // endも同様
 // 検証機能でinfoの内容を表示して（console.log(info))して確認しながら記述した
-console.log(info)
   var start = info.start._i[0] +'-'+ (parseInt(info.start._i[1])+1) +'-'+ info.start._i[2] + ' ' + info.start._i[3] + ':' + info.start._i[4];
   if (info.end){
     var end = info.end._i[0] +'-'+ (parseInt(info.end._i[1])+1) +'-'+ info.end._i[2] + ' ' + info.end._i[3] + ':' + info.end._i[4];
