@@ -10,10 +10,8 @@
 記述した内容の理解度を高めることが出来るようになっています。<br>
 カレンダーを搭載しているので、スケジュール帳としても活用出来るようになっています。
 
-[My Dictionary](http://18.181.149.36/)
+## [My Dictionary](http://18.181.149.36/)
 <img width="1335" alt="スクリーンショット 2021-05-14 19 51 27" src="https://user-images.githubusercontent.com/73943851/118260853-c75de380-b4ed-11eb-9f59-1cdd4072972c.png">
-##### 使用例
-<img width="1335" alt="スクリーンショット 2021-05-14 19 50 06" src="https://user-images.githubusercontent.com/73943851/118260708-97164500-b4ed-11eb-8ef6-e07eb64fdbd7.png">
 
 
 ### サイトテーマ
@@ -34,8 +32,8 @@
 ### 主な利用シーン
 学習するときや、メモを記述するとき、学習して忘れていることを思い出したり復習するとき
 
-### 機能一覧
-[### 機能一覧](https://docs.google.com/spreadsheets/d/13sAxZT6msTCT1acio1W_Qcg8BBYZIRwf0BeSHzVLUL4/edit#gid=0)
+### 機能
+[機能一覧表](https://docs.google.com/spreadsheets/d/13sAxZT6msTCT1acio1W_Qcg8BBYZIRwf0BeSHzVLUL4/edit#gid=0)
 
 ## 開発環境
 - OS：Amazon Linux release 2 (Karoo)
